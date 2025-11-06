@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guide Git & GitLab - Documentation pour Débutants</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <div class="logo">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 16V8C21 6.89543 20.1046 6 19 6H5C3.89543 6 3 6.89543 3 8V16C3 17.1046 3.89543 18 5 18H19C20.1046 18 21 17.1046 21 16Z" stroke="currentColor" stroke-width="2"/>
+                    <path d="M7 10L12 13L17 10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+                <span>Git Guide</span>
+            </div>
+        </div>
+        <nav class="sidebar-nav">
+            <div class="nav-section">
+                <div class="nav-section-header" onclick="toggleNavSection(this)">
+                    <span class="nav-section-icon">📚</span>
+                    <span class="nav-section-title">Intérêt de la gestion de version & outils existants de g.v</span>
+                    <span class="nav-section-toggle">▼</span>
+                </div>
+                <div class="nav-section-content">
+                    <a href="#introduction" class="nav-link active">
+                        <span class="nav-icon">📖</span>
+                        <span>Introduction</span>
+                    </a>
+                    <a href="#problem" class="nav-link">
+                        <span class="nav-icon">⚠️</span>
+                        <span>Le Problème</span>
+                    </a>
+                    <a href="#solution" class="nav-link">
+                        <span class="nav-icon">💡</span>
+                        <span>La Solution</span>
+                    </a>
+                    <a href="#types" class="nav-link">
+                        <span class="nav-icon">📊</span>
+                        <span>Types de Systèmes</span>
+                    </a>
+                    <a href="#local" class="nav-link sub-link">
+                        <span class="nav-icon">🖥️</span>
+                        <span>Local</span>
+                    </a>
+                    <a href="#centralized" class="nav-link sub-link">
+                        <span class="nav-icon">🏢</span>
+                        <span>Centralisé</span>
+                    </a>
+                    <a href="#distributed" class="nav-link sub-link">
+                        <span class="nav-icon">🌐</span>
+                        <span>Distribué (Git)</span>
+                    </a>
+                    <a href="#platforms" class="nav-link">
+                        <span class="nav-icon">☁️</span>
+                        <span>Plateformes</span>
+                    </a>
+                    <a href="#git-power" class="nav-link">
+                        <span class="nav-icon">⚡</span>
+                        <span>Puissance Git</span>
+                    </a>
+                    <a href="#next-steps" class="nav-link">
+                        <span class="nav-icon">🚀</span>
+                        <span>Prochaines Étapes</span>
+                    </a>
+                </div>
+            </div>
+        </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="content-wrapper">
+            <!-- Introduction Section -->
+            <section id="introduction" class="doc-section">
+                <h1 class="page-title">Intérêt de la gestion de version & outils existants de g.v</h1>
+                <p class="page-subtitle">Documentation complète pour débutants</p>
+                
+                <div class="alert alert-info">
+                    <div class="alert-icon">ℹ️</div>
+                    <div class="alert-content">
+                        <strong>Bienvenue dans le monde professionnel du développement logiciel.</strong>
+                        <p>La gestion de versions est bien plus qu'un simple outil technique — c'est la fondation sur laquelle reposent tous les projets informatiques modernes, des plus petits scripts aux plus vastes écosystèmes logiciels.</p>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-number">96%</div>
+                    <div class="stat-label">des développeurs professionnels utilisent des systèmes de gestion de versions</div>
+                </div>
+
+                <p>À travers cette documentation, vous allez découvrir comment transformer le chaos en collaboration organisée, maîtriser Git et GitLab, et adopter les meilleures pratiques utilisées par les plus grandes entreprises technologiques du monde.</p>
+            </section>
+
+            <!-- Problem Section -->
+            <section id="problem" class="doc-section">
+                <h2>Le Problème que Nous Résolvons</h2>
+                
+                <p>Imaginez cette scène trop familière : des fichiers portant des noms comme <code>projet_v1.py</code>, <code>projet_v2_final.py</code>, <code>projet_VRAIMENT_final.py</code>, et même <code>projet_final_final_FINAL.py</code> qui jonchent votre dossier de travail.</p>
+
+                <div class="card-grid">
+                    <div class="card">
+                        <div class="card-header">
+                            <span class="card-icon">📁</span>
+                            <h3>Le Cauchemar des Versions</h3>
+                        </div>
+                        <p>Sans système centralisé, chacun maintient ses propres copies, créant une confusion totale sur quelle version est à jour.</p>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-header">
+                            <span class="card-icon">❓</span>
+                            <h3>L'Énigme des Modifications</h3>
+                        </div>
+                        <p>"Qui a modifié ce code, quand et pourquoi ?" devient une question impossible à répondre sans gestion de versions appropriée.</p>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-header">
+                            <span class="card-icon">💥</span>
+                            <h3>Les Pertes Irréversibles</h3>
+                        </div>
+                        <p>Un clic malencontreux supprime du code critique. Pas de récupération possible. Votre travail de trois jours s'évapore.</p>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-header">
+                            <span class="card-icon">🔄</span>
+                            <h3>Les Conflits de Collaboration</h3>
+                        </div>
+                        <p>Deux développeurs modifient le même fichier. L'un écrase accidentellement le travail de l'autre. Les tensions montent.</p>
+                    </div>
+                </div>
+
+                <div class="alert alert-warning">
+                    <div class="alert-icon">💭</div>
+                    <div class="alert-content">
+                        <strong>La Question Cruciale</strong>
+                        <p>Et s'il existait un système qui éliminerait tous ces problèmes en même temps ?</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Solution Section -->
+            <section id="solution" class="doc-section">
+                <h2>Qu'est-ce que la Gestion de Versions ?</h2>
+                
+                <p class="lead">La gestion de versions, également appelée "Version Control System" (VCS), est bien plus qu'un simple système de stockage. C'est une <strong>machine à remonter le temps pour votre code</strong> — un outil qui enregistre chaque modification, vous permet d'annuler les erreurs instantanément, et crée un environnement sûr pour la collaboration d'équipe.</p>
+
+                <h3>Les Quatre Piliers de la Gestion de Versions</h3>
+
+                <div class="feature-list">
+                    <div class="feature-item">
+                        <div class="feature-icon">⏮️</div>
+                        <div class="feature-content">
+                            <h4>Revenir en Arrière</h4>
+                            <p>Accédez à n'importe quelle version antérieure de votre code. Une erreur en production ? Restaurez la version stable en quelques secondes.</p>
+                        </div>
+                    </div>
+
+                    <div class="feature-item">
+                        <div class="feature-icon">🔍</div>
+                        <div class="feature-content">
+                            <h4>Transparence Totale</h4>
+                            <p>Consultez l'historique complet : qui a modifié quoi, quand, et pourquoi. La responsabilité devient mesurable et traçable.</p>
+                        </div>
+                    </div>
+
+                    <div class="feature-item">
+                        <div class="feature-icon">👥</div>
+                        <div class="feature-content">
+                            <h4>Collaboration Sécurisée</h4>
+                            <p>Plusieurs développeurs travaillent simultanément sur le même projet sans écraser mutuellement leur travail.</p>
+                        </div>
+                    </div>
+
+                    <div class="feature-item">
+                        <div class="feature-icon">🛡️</div>
+                        <div class="feature-content">
+                            <h4>Protection Absolue</h4>
+                            <p>Votre code est sauvegardé de manière redondante. Même en cas de catastrophe informatique, rien n'est perdu.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="alert alert-success">
+                    <div class="alert-icon">✓</div>
+                    <div class="alert-content">
+                        <strong>L'Équation Simple</strong>
+                        <p>Sans VCS = Chaos Total | Avec VCS = Organisation et Sécurité</p>
+                    </div>
+                </div>
+
+                <h3>Portée et Échelle</h3>
+
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-marker">📄</div>
+                        <div class="timeline-content">
+                            <h4>Projets Individuels</h4>
+                            <p>Un seul fichier ou quelques fichiers pour un script personnel. Vous êtes le seul développeur.</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-marker">👥</div>
+                        <div class="timeline-content">
+                            <h4>Petites Équipes</h4>
+                            <p>10 à 50 fichiers, 2-5 développeurs travaillant ensemble sur une application web ou un logiciel métier.</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-marker">🏢</div>
+                        <div class="timeline-content">
+                            <h4>Moyennes Organisations</h4>
+                            <p>Milliers de fichiers, 50-200 développeurs répartis dans différents départements et fuseaux horaires.</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-marker">🌍</div>
+                        <div class="timeline-content">
+                            <h4>Entreprises Géantes</h4>
+                            <p>Des millions de fichiers, milliers de développeurs. Google, Microsoft, Netflix, Meta — tous gèrent des bases de code monumentales.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="callout">
+                    <strong>Insight Critique</strong>
+                    <p>Plus votre projet est grand, <strong>PLUS</strong> la gestion de versions devient indispensable et impactante. Pour une startup en croissance, elle passe de "sympathique" à "absolument vitale" en quelques mois seulement.</p>
+                </div>
+            </section>
+
+            <!-- Types Comparison -->
+            <section id="types" class="doc-section">
+                <h2>Les Trois Architectures de Gestion de Versions</h2>
+                
+                <p>Pour vraiment comprendre pourquoi Git a révolutionné l'industrie, vous devez connaître l'évolution des systèmes de gestion de versions. Chacune des trois architectures a résolu des problèmes — mais a aussi créé de nouvelles limitations.</p>
+
+                <div class="table-wrapper">
+                    <table class="comparison-table">
+                        <thead>
+                            <tr>
+                                <th>Critère</th>
+                                <th>🖥️ Local</th>
+                                <th>🏢 Centralisé</th>
+                                <th>🌐 Distribué</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Stockage</strong></td>
+                                <td>PC local uniquement</td>
+                                <td>Serveur central</td>
+                                <td><span class="badge badge-success">Local + Distant</span></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Collaboration</strong></td>
+                                <td><span class="badge badge-error">Impossible</span></td>
+                                <td><span class="badge badge-warning">Basique</span></td>
+                                <td><span class="badge badge-success">Complète</span></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Travail Hors Ligne</strong></td>
+                                <td><span class="badge badge-success">Oui</span></td>
+                                <td><span class="badge badge-error">Non</span></td>
+                                <td><span class="badge badge-success">Oui</span></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Historique Local</strong></td>
+                                <td><span class="badge badge-success">Complet</span></td>
+                                <td><span class="badge badge-warning">Partiel</span></td>
+                                <td><span class="badge badge-success">Complet</span></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Risque de Perte</strong></td>
+                                <td><span class="badge badge-error">Très Élevé</span></td>
+                                <td><span class="badge badge-warning">Moyen</span></td>
+                                <td><span class="badge badge-success">Très Faible</span></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Vitesse</strong></td>
+                                <td>Rapide</td>
+                                <td>Lente</td>
+                                <td><span class="badge badge-success">Ultra-rapide</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="callout">
+                    <strong>L'Évolution Naturelle</strong>
+                    <p><strong>Local → Centralisé → Distribué</strong> n'est pas un hasard — c'est une progression logique vers la solution parfaite. Chaque génération a appris des faiblesses de la précédente.</p>
+                </div>
+            </section>
+
+            <!-- Local Section -->
+            <section id="local" class="doc-section">
+                <h2>Gestion de Versions Locale</h2>
+                
+                <p>Avant l'ère d'Internet, les développeurs devaient travailler localement. Ils gardaient des snapshots de leurs fichiers sur leur propre ordinateur, créant une sorte d'historique primitif.</p>
+
+                <h3>Comment Ça Fonctionne</h3>
+                <p>Toutes les versions du code sont stockées uniquement sur votre ordinateur personnel. Pas de serveur, pas de cloud, pas de réseau. Juste votre PC.</p>
+
+                <h3>Avantages</h3>
+                <ul class="check-list">
+                    <li>Fonctionne sans Internet — vous êtes totalement indépendant</li>
+                    <li>Facile à comprendre — des concepts simples pour débuter</li>
+                    <li>Zéro configuration — aucun serveur complexe à maintenir</li>
+                </ul>
+
+                <h3>Limitations Critiques</h3>
+                <ul class="cross-list">
+                    <li>Collaboration impossible — votre équipe ne peut pas partager</li>
+                    <li>Pas de sauvegarde distante — une panne = tout est perdu</li>
+                    <li>Point de défaillance unique — si votre ordinateur explose, c'est fini</li>
+                </ul>
+
+                <div class="note">
+                    <strong>Exemples :</strong> Microsoft Word "Suivi des modifications", Historique de versions de Google Drive, Sauvegarde Time Machine (Mac)
+                </div>
+
+                <div class="verdict">
+                    <strong>Verdict :</strong> Bon pour l'usage personnel et très limité. Tout à fait inadéquat pour le travail professionnel ou tout projet d'équipe.
+                </div>
+            </section>
+
+            <!-- Centralized Section -->
+            <section id="centralized" class="doc-section">
+                <h2>Gestion de Versions Centralisée</h2>
+                
+                <p>Dans les années 1990 et 2000, avec l'émergence de l'Internet, les équipes de développement ont réalisé qu'elles avaient besoin d'une solution partagée.</p>
+
+                <h3>Comment Ça Fonctionne</h3>
+                <p>Un serveur central stocke l'historique complet du projet. Les développeurs extraient les fichiers depuis ce serveur, les modifient, et les renvoient. Toutes les versions résident au même endroit, sur une machine centrale.</p>
+
+                <div class="note">
+                    <strong>Exemples :</strong> CVS, SVN (Subversion), Microsoft TFS, Perforce
+                </div>
+
+                <h3>Avantages</h3>
+                <ul class="check-list">
+                    <li>Collaboration possible — plusieurs développeurs travaillent ensemble</li>
+                    <li>Une seule source de vérité — une version officielle garantit la cohérence</li>
+                    <li>Contrôle d'accès — gérez qui peut modifier quoi</li>
+                    <li>Audit et responsabilité — tracez chaque modification jusqu'à l'auteur</li>
+                </ul>
+
+                <h3>Limitations Graves</h3>
+                <ul class="cross-list">
+                    <li>Dépendance serveur absolue — pas de serveur = pas de travail possible</li>
+                    <li>Pas d'historique complet en local — seulement les changements récents</li>
+                    <li>Goulot d'étranglement — serveur lent = toute l'équipe bloquée</li>
+                    <li>Pas de travail hors ligne — même une brève déconnexion paralyse l'équipe</li>
+                </ul>
+
+                <div class="alert alert-warning">
+                    <div class="alert-icon">⚠️</div>
+                    <div class="alert-content">
+                        <strong>Le Problème Fondamental</strong>
+                        <p>Centraliser la solution crée une dépendance dangereuse. Si le serveur tombe en panne — qu'il soit attaqué, submergé, ou simplement en maintenance — toute l'équipe devient inopérationnelle.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Distributed Section -->
+            <section id="distributed" class="doc-section">
+                <h2>Gestion de Versions Distribuée : La Révolution Git</h2>
+                
+                <p class="lead">Au milieu des années 2000, <strong>Linus Torvalds</strong> (créateur du noyau Linux) s'est posé une question révolutionnaire : "Et si chaque développeur avait une copie complète de l'historique ? Et si nous éliminions totalement la dépendance au serveur central ?" <strong>Git était né</strong> — et il allait transformer le développement logiciel pour toujours.</p>
+
+                <h3>Le Changement de Paradigme</h3>
+                <p>Chaque développeur possède une copie complète du dépôt entier sur sa machine locale, incluant tout l'historique depuis le début du projet. En parallèle, il existe un dépôt distant (souvent hébergé sur GitHub ou GitLab) qui sert de point de synchronisation.</p>
+
+                <div class="code-block">
+                    <div class="code-header">Architecture Distribuée</div>
+                    <pre><code>Local (Votre PC)  ←→  Distant (GitHub/GitLab)  ←→  Équipe (Synchronisée)</code></pre>
+                </div>
+
+                <div class="note">
+                    <strong>Systèmes Distribués :</strong> Git (dominant à 90%+), Mercurial, Bazaar
+                </div>
+
+                <h3>Avantages Révolutionnaires</h3>
+
+                <div class="feature-list">
+                    <div class="feature-item">
+                        <div class="feature-icon">📶</div>
+                        <div class="feature-content">
+                            <h4>Continue Hors Ligne</h4>
+                            <p>Commitez, créez des branches, fusionnez — tout fonctionne sans Internet. La connexion est juste un "bonus" pour synchroniser.</p>
+                        </div>
+                    </div>
+
+                    <div class="feature-item">
+                        <div class="feature-icon">🛡️</div>
+                        <div class="feature-content">
+                            <h4>Protection Maximale</h4>
+                            <p>Chaque développeur est une sauvegarde vivante. Si GitHub explose, chaque machine contient l'historique complet.</p>
+                        </div>
+                    </div>
+
+                    <div class="feature-item">
+                        <div class="feature-icon">🧠</div>
+                        <div class="feature-content">
+                            <h4>Merges Intelligents</h4>
+                            <p>Git gère les fusions complexes automatiquement. Travailler en parallèle sans conflits dévastateurs est finalement possible.</p>
+                        </div>
+                    </div>
+
+                    <div class="feature-item">
+                        <div class="feature-icon">🌍</div>
+                        <div class="feature-content">
+                            <h4>Idéal pour l'Open Source</h4>
+                            <p>Des milliers de contributeurs peuvent proposer des changements simultanément. Le processus de fusion est robuste et démocratique.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <h3>Performance : Git vs SVN</h3>
+
+                <div class="table-wrapper">
+                    <table class="comparison-table">
+                        <thead>
+                            <tr>
+                                <th>Opération</th>
+                                <th>Git</th>
+                                <th>SVN</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Créer une branche</td>
+                                <td><span class="badge badge-success">~0.01s</span></td>
+                                <td><span class="badge badge-error">5-30s</span></td>
+                            </tr>
+                            <tr>
+                                <td>Voir l'historique</td>
+                                <td><span class="badge badge-success">~0.05s</span></td>
+                                <td><span class="badge badge-warning">2-5s</span></td>
+                            </tr>
+                            <tr>
+                                <td>Rechercher modifications</td>
+                                <td><span class="badge badge-success">~0.1s</span></td>
+                                <td><span class="badge badge-error">30-60s+</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="alert alert-success">
+                    <div class="alert-icon">🚀</div>
+                    <div class="alert-content">
+                        <strong>Adoption Massive</strong>
+                        <p>Git représente maintenant <strong>90%+</strong> de toute l'utilisation de gestion de versions dans le monde. C'est plus qu'un outil dominant — c'est devenu l'expectation par défaut.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Platforms Section -->
+            <section id="platforms" class="doc-section">
+                <h2>Plateformes Collaboratives : GitHub & GitLab</h2>
+                
+                <p>Git est l'outil technique, mais pour vraiment collaborer à l'échelle du monde, vous avez besoin d'une plateforme. GitHub et GitLab sont les deux géants qui ont transformé le développement logiciel.</p>
+
+                <div class="platform-comparison">
+                    <div class="platform-card">
+                        <h3>
+                            <span class="platform-icon">🐙</span>
+                            GitHub
+                        </h3>
+                        <ul>
+                            <li><strong>Fondée en 2008</strong></li>
+                            <li><strong>100M+ développeurs</strong> actifs</li>
+                            <li>Racheté par Microsoft en 2018</li>
+                            <li>Interface intuitive pour débutants</li>
+                            <li>Plateforme #1 pour l'open source</li>
+                            <li>Intégration profonde avec l'écosystème</li>
+                        </ul>
+                    </div>
+
+                    <div class="platform-card">
+                        <h3>
+                            <span class="platform-icon">🦊</span>
+                            GitLab
+                        </h3>
+                        <ul>
+                            <li><strong>Plateforme DevOps complète</strong></li>
+                            <li>CI/CD, gestion de projet intégrés</li>
+                            <li>Auto-hébergement possible</li>
+                            <li>Plus orientée entreprise</li>
+                            <li>Populaire en France et Europe</li>
+                            <li>Fonctionnalités collaboratives avancées</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <h3>Pourquoi Elles Comptent Vraiment</h3>
+
+                <div class="feature-list">
+                    <div class="feature-item">
+                        <div class="feature-icon">🌍</div>
+                        <div class="feature-content">
+                            <h4>Travail Distribué Mondial</h4>
+                            <p>Les équipes peuvent travailler depuis n'importe où — Tokyo, Paris, São Paulo — sur le même projet en temps réel.</p>
+                        </div>
+                    </div>
+
+                    <div class="feature-item">
+                        <div class="feature-icon">🛠️</div>
+                        <div class="feature-content">
+                            <h4>Gestion Intégrée</h4>
+                            <p>Discussions, issues, pull requests, code review — tout ce dont une équipe a besoin pour construire un logiciel professionnel.</p>
+                        </div>
+                    </div>
+
+                    <div class="feature-item">
+                        <div class="feature-icon">☁️</div>
+                        <div class="feature-content">
+                            <h4>Infrastructure Moderne</h4>
+                            <p>Plus besoin de serveurs locaux compliqués. Tout est dans le cloud, accessible avec une simple connexion Internet.</p>
+                        </div>
+                    </div>
+
+                    <div class="feature-item">
+                        <div class="feature-icon">💼</div>
+                        <div class="feature-content">
+                            <h4>Standard de l'Industrie</h4>
+                            <p>Google, Microsoft, Netflix, Amazon, Facebook — les plus grandes entreprises technologiques du monde utilisent ces plateformes.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-number">95%</div>
+                    <div class="stat-label">des offres d'emploi en développement exigent la connaissance de Git/GitLab</div>
+                </div>
+
+                <h3>Autres Outils Utilisant le Versioning</h3>
+                <p>La gestion de versions ne se limite pas au développement logiciel. De nombreux outils dans différents domaines intègrent ces concepts :</p>
+
+                <div class="card-grid">
+                    <div class="card">
+                        <div class="card-header">
+                            <span class="card-icon">📚</span>
+                            <h3>Systèmes Wiki</h3>
+                        </div>
+                        <p><strong>Historique des versions</strong> est une fonctionnalité principale des systèmes wiki :</p>
+                        <ul style="margin-top: 0.5rem; padding-left: 1rem;">
+                            <li><strong>Wikipédia/MediaWiki</strong> — Suivi de toutes les modifications d'articles</li>
+                            <li><strong>GitHub Wiki</strong> — Documentation et organisation entre collaborateurs</li>
+                            <li><strong>EduTech Wiki</strong> — Plateforme éducative collaborative</li>
+                        </ul>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-header">
+                            <span class="card-icon">🎓</span>
+                            <h3>Plateformes Pédagogiques</h3>
+                        </div>
+                        <p><strong>Moodle</strong> — Plateforme très utilisée dans la formation et l'enseignement :</p>
+                        <ul style="margin-top: 0.5rem; padding-left: 1rem;">
+                            <li>Suivi des modifications des cours</li>
+                            <li>Historique des soumissions d'étudiants</li>
+                            <li>Gestion collaborative des contenus pédagogiques</li>
+                        </ul>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-header">
+                            <span class="card-icon">📝</span>
+                            <h3>Logiciels de Traitement de Texte</h3>
+                        </div>
+                        <p>Les versions en ligne et collaboratives permettent de retracer l'historique :</p>
+                        <ul style="margin-top: 0.5rem; padding-left: 1rem;">
+                            <li><strong>Microsoft Office 365</strong> — Historique automatique</li>
+                            <li><strong>Google Docs</strong> — Versions en temps réel</li>
+                            <li><strong>Notion, Confluence</strong> — Documentation collaborative</li>
+                        </ul>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-header">
+                            <span class="card-icon">🏢</span>
+                            <h3>Solutions Centralisées Legacy</h3>
+                        </div>
+                        <p>Systèmes traditionnels encore utilisés en entreprise :</p>
+                        <ul style="margin-top: 0.5rem; padding-left: 1rem;">
+                            <li><strong>CVS</strong> — Concurrent Versioning System (principe centralisé)</li>
+                            <li><strong>SVN (Subversion)</strong> — Successeur amélioré de CVS</li>
+                            <li><strong>Microsoft TFS</strong> — Solution payante centralisée</li>
+                        </ul>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-header">
+                            <span class="card-icon">🌐</span>
+                            <h3>Logiciels SCM Décentralisés Modernes</h3>
+                        </div>
+                        <p>Nouvelle génération de systèmes distribués :</p>
+                        <ul style="margin-top: 0.5rem; padding-left: 1rem;">
+                            <li><strong>Git</strong> — Standard de facto (logiciel libre)</li>
+                            <li><strong>Mercurial</strong> — Alternative distribuée (logiciel libre)</li>
+                            <li><strong>Bazaar</strong> — Système distribué (maintenance)</li>
+                        </ul>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-header">
+                            <span class="card-icon">☁️</span>
+                            <h3>Plateformes Cloud</h3>
+                        </div>
+                        <p>Services modernes intégrant la gestion de versions :</p>
+                        <ul style="margin-top: 0.5rem; padding-left: 1rem;">
+                            <li><strong>GitHub</strong> — Plateforme collaborative mondiale</li>
+                            <li><strong>GitLab</strong> — Solution DevOps complète</li>
+                            <li><strong>Bitbucket</strong> — Intégration Atlassian</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="callout">
+                    <strong>Évolution des Paradigmes</strong>
+                    <p>De CVS/SVN (centralisés) vers Git/Mercurial (distribués) : cette évolution reflète le passage d'un monde connecté par intermittence vers un écosystème global toujours en ligne, où la collaboration décentralisée est devenue la norme.</p>
+                </div>
+            </section>
+
+            <!-- Git Power Section -->
+            <section id="git-power" class="doc-section">
+                <h2>Pourquoi Git Domine le Marché</h2>
+                
+                <p>Git combine le meilleur de tous les mondes : travail hors ligne, sauvegarde complète, merges intelligents, et performance éclair.</p>
+
+                <h3>Ce Que Git Change</h3>
+
+                <div class="comparison-grid">
+                    <div class="comparison-item">
+                        <h4>Avant Git</h4>
+                        <ul class="cross-list">
+                            <li>Dépendance au serveur constant</li>
+                            <li>Branches coûteuses en temps</li>
+                            <li>Merges complexes et risqués</li>
+                            <li>Historique partiel en local</li>
+                            <li>Collaboration limitée</li>
+                        </ul>
+                    </div>
+
+                    <div class="comparison-item">
+                        <h4>Avec Git</h4>
+                        <ul class="check-list">
+                            <li>Autonomie complète hors ligne</li>
+                            <li>Branches instantanées (~0.01s)</li>
+                            <li>Merges intelligents automatiques</li>
+                            <li>Historique complet partout</li>
+                            <li>Collaboration mondiale fluide</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="callout">
+                    <strong>L'Impact de Linus Torvalds</strong>
+                    <p>Créé en 2005 pour gérer le noyau Linux, Git a transformé l'impossible en routinier. Aujourd'hui, Git est utilisé par des projets allant de petits scripts personnels à des bases de code de millions de lignes.</p>
+                </div>
+            </section>
+
+            <!-- Next Steps Section -->
+            <section id="next-steps" class="doc-section">
+                <h2>Prochaines Étapes</h2>
+                
+                <p class="lead">Vous venez de traverser l'histoire complète de la gestion de versions. Vous comprenez maintenant pourquoi Git n'est pas juste un outil — c'est une révolution qui a démocratisé la collaboration logicielle.</p>
+
+                <h3>Ce Que Vous Savez Maintenant</h3>
+
+                <div class="checklist">
+                    <div class="checklist-item">
+                        <span class="checklist-icon">✓</span>
+                        <div class="checklist-content">
+                            <strong>Les Problèmes Réels</strong>
+                            <p>Sans gestion de versions, les équipes font face au chaos, aux pertes de données et aux conflits destructeurs.</p>
+                        </div>
+                    </div>
+
+                    <div class="checklist-item">
+                        <span class="checklist-icon">✓</span>
+                        <div class="checklist-content">
+                            <strong>L'Évolution Technologique</strong>
+                            <p>De local (impossible) → centralisé (limité) → distribué (révolutionnaire).</p>
+                        </div>
+                    </div>
+
+                    <div class="checklist-item">
+                        <span class="checklist-icon">✓</span>
+                        <div class="checklist-content">
+                            <strong>Pourquoi Git Domine</strong>
+                            <p>Git combine le meilleur de tous les mondes : travail hors ligne, sauvegarde complète, merges intelligents.</p>
+                        </div>
+                    </div>
+
+                    <div class="checklist-item">
+                        <span class="checklist-icon">✓</span>
+                        <div class="checklist-content">
+                            <strong>L'Importance des Plateformes</strong>
+                            <p>GitHub et GitLab rendent Git accessible au monde entier. Elles sont le cœur du développement moderne.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="alert alert-info">
+                    <div class="alert-icon">💡</div>
+                    <div class="alert-content">
+                        <strong>La Promesse</strong>
+                        <p>Git n'est pas difficile — c'est juste nouveau. Une fois que les concepts cliquent (et ils vont cliquer), vous vous demanderez comment vous aviez pu travailler sans.</p>
+                    </div>
+                </div>
+
+                <div class="final-message">
+                    <h3>Bienvenue dans le monde professionnel du développement logiciel.</h3>
+                    <p>Vous êtes maintenant équipé pour y réussir. 🚀</p>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Scroll to Top Button -->
+    <button class="scroll-to-top" id="scrollToTop" aria-label="Retour en haut">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 19V5M12 5L5 12M12 5L19 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+    </button>
+
+    <script src="script.js"></script>
+</body>
+</html>
