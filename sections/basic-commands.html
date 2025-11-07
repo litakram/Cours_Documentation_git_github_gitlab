@@ -1,17 +1,529 @@
 <section id="basic-commands" class="doc-section">
     <h2>Commandes Git de Base</h2>
     
-    <p class="lead">Cette section sera développée par un membre de l'équipe pour couvrir les commandes essentielles de Git.</p>
+    <p class="lead">Maîtrisez les commandes essentielles de Git pour gérer vos projets localement. Cette section couvre toutes les opérations fondamentales que vous utiliserez quotidiennement.</p>
     
-    <div class="alert alert-warning">
-        <div class="alert-icon">⏳</div>
+    <div class="alert alert-info">
+        <div class="alert-icon">💡</div>
         <div class="alert-content">
-            <strong>En attente</strong>
-            <p>Section réservée pour les commandes de base : init, add, commit, push, pull, clone.</p>
+            <strong>Astuce Interactive</strong>
+            <p>Cliquez sur n'importe quel exemple de commande pour le copier automatiquement dans votre presse-papiers !</p>
         </div>
     </div>
+
+    <!-- Configuration de Git -->
+    <h3>🔧 Configuration de Git</h3>
+    <p>Avant de commencer à utiliser Git, vous devez configurer votre identité. Cette information sera attachée à tous vos commits.</p>
     
-    <!-- TODO: Add basic Git commands with examples -->
-    <!-- TODO: Include command syntax and explanations -->
-    <!-- TODO: Add practical exercises -->
+    <div class="card-grid">
+        <div class="card">
+            <div class="card-header">
+                <span class="card-icon">👤</span>
+                <h4>Configuration de l'utilisateur</h4>
+            </div>
+            <div class="command-card">
+                <div class="command-title">Définir votre nom</div>
+                <code class="command-example" onclick="copyCommand(this)">git config --global user.name "Votre Nom"</code>
+                <div class="command-explanation">
+                    <strong>Exemple pratique :</strong>
+                    <code class="command-example" onclick="copyCommand(this)">git config --global user.name "Badr Ferhani"</code>
+                </div>
+            </div>
+            <div class="command-card">
+                <div class="command-title">Définir votre email</div>
+                <code class="command-example" onclick="copyCommand(this)">git config --global user.email "votre@email.com"</code>
+                <div class="command-explanation">
+                    <strong>Exemple pratique :</strong>
+                    <code class="command-example" onclick="copyCommand(this)">git config --global user.email "badr@example.com"</code>
+                </div>
+            </div>
+            <div class="command-card">
+                <div class="command-title">Vérifier la configuration</div>
+                <code class="command-example" onclick="copyCommand(this)">git config --list</code>
+                <div class="command-explanation">Affiche toutes vos configurations Git actuelles</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Initialisation d'un Dépôt -->
+    <h3>🏗️ Initialisation d'un Dépôt</h3>
+    <p>Créez un nouveau dépôt Git dans votre projet existant ou démarrez un projet depuis zéro.</p>
+    
+    <div class="feature-list">
+        <div class="feature-item">
+            <div class="feature-icon">🆕</div>
+            <div class="feature-content">
+                <h4>Créer un nouveau dépôt</h4>
+                <div class="command-card">
+                    <code class="command-example" onclick="copyCommand(this)">git init</code>
+                    <div class="command-explanation">
+                        Crée un dossier caché <code>.git</code> qui contiendra tout l'historique de votre projet.
+                        <br><strong>⚠️ Attention :</strong> Exécutez cette commande dans le dossier racine de votre projet !
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Vérification de l'état et ajout de fichiers -->
+    <h3>📊 Gestion des Fichiers</h3>
+    <p>Surveillez l'état de vos fichiers et préparez-les pour être sauvegardés.</p>
+    
+    <div class="card-grid">
+        <div class="card">
+            <div class="card-header">
+                <span class="card-icon">🔍</span>
+                <h4>Vérifier l'état</h4>
+            </div>
+            <div class="command-card">
+                <div class="command-title">Voir le statut des fichiers</div>
+                <code class="command-example" onclick="copyCommand(this)">git status</code>
+                <div class="command-explanation">
+                    Montre quels fichiers sont :
+                    <ul>
+                        <li><span class="badge badge-error">Modifiés</span> (en rouge)</li>
+                        <li><span class="badge badge-success">Prêts à être commitez</span> (en vert)</li>
+                        <li><span class="badge badge-warning">Non suivis</span> (nouveaux fichiers)</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <span class="card-icon">➕</span>
+                <h4>Ajouter des fichiers</h4>
+            </div>
+            <div class="command-card">
+                <div class="command-title">Ajouter un fichier spécifique</div>
+                <code class="command-example" onclick="copyCommand(this)">git add nom-du-fichier.ext</code>
+                <div class="command-explanation">
+                    <strong>Exemple :</strong>
+                    <code class="command-example" onclick="copyCommand(this)">git add index.html</code>
+                </div>
+            </div>
+            <div class="command-card">
+                <div class="command-title">Ajouter tous les fichiers modifiés</div>
+                <code class="command-example" onclick="copyCommand(this)">git add .</code>
+                <div class="command-explanation">Le point <code>.</code> signifie "dossier courant et sous-dossiers"</div>
+            </div>
+            <div class="command-card">
+                <div class="command-title">Ajouter TOUT (même les suppressions)</div>
+                <code class="command-example" onclick="copyCommand(this)">git add --all</code>
+                <div class="command-explanation">
+                    Forme courte : <code class="command-example" onclick="copyCommand(this)">git add -A</code>
+                </div>
+            </div>
+            <div class="command-card">
+                <div class="command-title">Ajouter un dossier entier</div>
+                <code class="command-example" onclick="copyCommand(this)">git add nom-du-dossier</code>
+                <div class="command-explanation">
+                    <strong>Exemple :</strong>
+                    <code class="command-example" onclick="copyCommand(this)">git add assets</code>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Commit des changements -->
+    <h3>💾 Sauvegarder vos Changements (Commit)</h3>
+    <p>Une fois vos fichiers ajoutés, créez un "instantané" permanent de votre travail.</p>
+    
+    <div class="alert alert-success">
+        <div class="alert-icon">✨</div>
+        <div class="alert-content">
+            <strong>Bonne Pratique</strong>
+            <p>Écrivez des messages de commit clairs et descriptifs. Vos collègues (et votre futur vous) vous remercieront !</p>
+        </div>
+    </div>
+
+    <div class="feature-list">
+        <div class="feature-item">
+            <div class="feature-icon">💬</div>
+            <div class="feature-content">
+                <h4>Commit avec message</h4>
+                <div class="command-card">
+                    <div class="command-title">Syntaxe de base</div>
+                    <code class="command-example" onclick="copyCommand(this)">git commit -m "Votre message descriptif"</code>
+                    <div class="command-explanation">
+                        <strong>Exemples pratiques :</strong><br>
+                        <code class="command-example" onclick="copyCommand(this)">git commit -m "feat: Add user authentication system"</code><br>
+                        <code class="command-example" onclick="copyCommand(this)">git commit -m "fix: Resolve login button styling issue"</code><br>
+                        <code class="command-example" onclick="copyCommand(this)">git commit -m "docs: Update installation instructions"</code>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="feature-item">
+            <div class="feature-icon">⚡</div>
+            <div class="feature-content">
+                <h4>Commit rapide</h4>
+                <div class="command-card">
+                    <div class="command-title">Ajouter et commiter en une seule commande</div>
+                    <code class="command-example" onclick="copyCommand(this)">git commit -a -m "Message du commit"</code>
+                    <div class="command-explanation">
+                        <strong>⚠️ Attention :</strong> Ne fonctionne qu'avec les fichiers déjà suivis par Git (pas les nouveaux fichiers)
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="feature-item">
+            <div class="feature-icon">🔧</div>
+            <div class="feature-content">
+                <h4>Modifier le dernier commit</h4>
+                <div class="command-card">
+                    <div class="command-title">Corriger le dernier commit sans changer le message</div>
+                    <code class="command-example" onclick="copyCommand(this)">git commit --amend --no-edit</code>
+                    <div class="command-explanation">
+                        Utile si vous avez oublié d'ajouter un fichier au dernier commit
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Comparaison et Historique -->
+    <h3>🔍 Analyser l'Historique</h3>
+    <p>Explorez l'évolution de votre projet et comparez les différentes versions.</p>
+    
+    <div class="card-grid">
+        <div class="card">
+            <div class="card-header">
+                <span class="card-icon">📈</span>
+                <h4>Voir les différences</h4>
+            </div>
+            <div class="command-card">
+                <div class="command-title">Comparer les fichiers modifiés</div>
+                <code class="command-example" onclick="copyCommand(this)">git diff</code>
+                <div class="command-explanation">Montre ligne par ligne ce qui a changé dans vos fichiers</div>
+            </div>
+            <div class="command-card">
+                <div class="command-title">Comparer un fichier spécifique</div>
+                <code class="command-example" onclick="copyCommand(this)">git diff --base nom-fichier.ext</code>
+                <div class="command-explanation">Compare un fichier avec sa version de base</div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <span class="card-icon">📚</span>
+                <h4>Historique des commits</h4>
+            </div>
+            <div class="command-card">
+                <div class="command-title">Voir l'historique complet</div>
+                <code class="command-example" onclick="copyCommand(this)">git log</code>
+                <div class="command-explanation">Affiche tous les commits avec détails complets</div>
+            </div>
+            <div class="command-card">
+                <div class="command-title">Historique condensé (recommandé)</div>
+                <code class="command-example" onclick="copyCommand(this)">git log --oneline</code>
+                <div class="command-explanation">Une ligne par commit - plus lisible !</div>
+            </div>
+            <div class="command-card">
+                <div class="command-title">Détails d'un commit spécifique</div>
+                <code class="command-example" onclick="copyCommand(this)">git show [hash-du-commit]</code>
+                <div class="command-explanation">
+                    <strong>Exemple :</strong>
+                    <code class="command-example" onclick="copyCommand(this)">git show abc1234</code>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Annulation et Restauration -->
+    <h3>⏪ Annuler et Restaurer</h3>
+    <p>Même les meilleurs développeurs font des erreurs. Git vous permet de revenir en arrière facilement !</p>
+
+    <div class="alert alert-warning">
+        <div class="alert-icon">⚠️</div>
+        <div class="alert-content">
+            <strong>Zone de Danger</strong>
+            <p>Certaines commandes peuvent supprimer définitivement votre travail. Lisez attentivement avant d'exécuter !</p>
+        </div>
+    </div>
+
+    <div class="card-grid">
+        <div class="card">
+            <div class="card-header">
+                <span class="card-icon">🔄</span>
+                <h4>Navigation dans l'historique</h4>
+            </div>
+            <div class="command-card">
+                <div class="command-title">Revenir à un commit spécifique</div>
+                <code class="command-example" onclick="copyCommand(this)">git checkout [hash-du-commit]</code>
+                <div class="command-explanation">
+                    <strong>Exemple :</strong>
+                    <code class="command-example" onclick="copyCommand(this)">git checkout abc1234</code>
+                    <br><em>Mode "détaché" - pour explorer seulement !</em>
+                </div>
+            </div>
+            <div class="command-card">
+                <div class="command-title">Annuler les modifications d'un fichier</div>
+                <code class="command-example" onclick="copyCommand(this)">git checkout -- nom-fichier.ext</code>
+                <div class="command-explanation">
+                    Restaure le fichier à son état du dernier commit
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <span class="card-icon">🗑️</span>
+                <h4>Gestion des fichiers</h4>
+            </div>
+            <div class="command-card">
+                <div class="command-title">Supprimer un fichier du dépôt</div>
+                <code class="command-example" onclick="copyCommand(this)">git rm nom-fichier.ext</code>
+                <div class="command-explanation">Supprime le fichier du disque ET du suivi Git</div>
+            </div>
+            <div class="command-card">
+                <div class="command-title">Renommer un fichier</div>
+                <code class="command-example" onclick="copyCommand(this)">git mv ancien-nom.ext nouveau-nom.ext</code>
+                <div class="command-explanation">Git détecte automatiquement le renommage</div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <span class="card-icon">↩️</span>
+                <h4>Reset et Revert</h4>
+            </div>
+            <div class="command-card">
+                <div class="command-title">Retirer un fichier de la zone d'index</div>
+                <code class="command-example" onclick="copyCommand(this)">git reset HEAD nom-fichier.ext</code>
+                <div class="command-explanation">Le fichier reste modifié, mais n'est plus "prêt à être commité"</div>
+            </div>
+            <div class="command-card">
+                <div class="command-title">🚨 DANGER : Annuler TOUS les changements</div>
+                <code class="command-example" onclick="copyCommand(this)">git reset --hard HEAD</code>
+                <div class="command-explanation">
+                    <strong style="color: #e74c3c;">ATTENTION :</strong> Supprime définitivement tous vos changements non commitez !
+                </div>
+            </div>
+            <div class="command-card">
+                <div class="command-title">🚨 DANGER : Supprimer le dernier commit</div>
+                <code class="command-example" onclick="copyCommand(this)">git reset --hard HEAD~1</code>
+                <div class="command-explanation">
+                    <strong style="color: #e74c3c;">TRÈS DANGEREUX :</strong> Supprime le dernier commit définitivement !
+                </div>
+            </div>
+            <div class="command-card">
+                <div class="command-title">✅ SÉCURISÉ : Annuler un commit</div>
+                <code class="command-example" onclick="copyCommand(this)">git revert --no-edit HEAD</code>
+                <div class="command-explanation">
+                    <strong style="color: #27ae60;">RECOMMANDÉ :</strong> Crée un nouveau commit qui annule les changements - historique préservé !
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Commandes Système Utiles -->
+    <h3>🛠️ Commandes Système Utiles</h3>
+    <p>Quelques commandes système qui vous aideront dans votre workflow Git quotidien.</p>
+    
+    <div class="card-grid">
+        <div class="card">
+            <div class="card-header">
+                <span class="card-icon">📁</span>
+                <h4>Navigation et Création</h4>
+            </div>
+            <div class="command-card">
+                <div class="command-title">Changer de dossier</div>
+                <code class="command-example" onclick="copyCommand(this)">cd nom-du-dossier</code>
+                <div class="command-explanation">
+                    <strong>Exemples :</strong><br>
+                    <code class="command-example" onclick="copyCommand(this)">cd mon-projet</code> (entrer dans le dossier)<br>
+                    <code class="command-example" onclick="copyCommand(this)">cd ..</code> (remonter d'un niveau)
+                </div>
+            </div>
+            <div class="command-card">
+                <div class="command-title">Créer un dossier</div>
+                <code class="command-example" onclick="copyCommand(this)">mkdir nom-du-dossier</code>
+                <div class="command-explanation">
+                    <strong>Exemple :</strong>
+                    <code class="command-example" onclick="copyCommand(this)">mkdir mon-nouveau-projet</code>
+                </div>
+            </div>
+            <div class="command-card">
+                <div class="command-title">Créer un fichier vide</div>
+                <code class="command-example" onclick="copyCommand(this)">touch nom-fichier.ext</code>
+                <div class="command-explanation">
+                    <strong>Exemple :</strong>
+                    <code class="command-example" onclick="copyCommand(this)">touch index.html</code>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <span class="card-icon">🔐</span>
+                <h4>Configuration SSH</h4>
+            </div>
+            <div class="command-card">
+                <div class="command-title">Générer une clé SSH</div>
+                <code class="command-example" onclick="copyCommand(this)">ssh-keygen -t ed25519 -C "votre@email.com"</code>
+                <div class="command-explanation">Permet de se connecter à GitHub/GitLab sans mot de passe</div>
+            </div>
+            <div class="command-card">
+                <div class="command-title">Afficher la clé publique</div>
+                <code class="command-example" onclick="copyCommand(this)">cat ~/.ssh/id_ed25519.pub</code>
+                <div class="command-explanation">Copiez le résultat dans vos paramètres GitHub/GitLab</div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <span class="card-icon">📝</span>
+                <h4>Fichiers spéciaux</h4>
+            </div>
+            <div class="command-card">
+                <div class="command-title">Créer un fichier .gitignore</div>
+                <code class="command-example" onclick="copyCommand(this)">touch .gitignore</code>
+                <div class="command-explanation">
+                    Listez les fichiers que Git doit ignorer :<br>
+                    <code>node_modules/</code><br>
+                    <code>*.log</code><br>
+                    <code>.env</code>
+                </div>
+            </div>
+            <div class="command-card">
+                <div class="command-title">Forcer Git à suivre un dossier vide</div>
+                <code class="command-example" onclick="copyCommand(this)">touch dossier/.gitkeep</code>
+                <div class="command-explanation">
+                    <strong>Exemple :</strong>
+                    <code class="command-example" onclick="copyCommand(this)">touch assets/.gitkeep</code>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Workflow Recommandé -->
+    <div class="callout">
+        <strong>🔄 Workflow Git Recommandé</strong>
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-marker">1️⃣</div>
+                <div class="timeline-content">
+                    <h4>Vérifiez l'état</h4>
+                    <code class="command-example" onclick="copyCommand(this)">git status</code>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-marker">2️⃣</div>
+                <div class="timeline-content">
+                    <h4>Ajoutez vos fichiers</h4>
+                    <code class="command-example" onclick="copyCommand(this)">git add .</code>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-marker">3️⃣</div>
+                <div class="timeline-content">
+                    <h4>Commitez avec un message clair</h4>
+                    <code class="command-example" onclick="copyCommand(this)">git commit -m "feat: Add new feature"</code>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-marker">4️⃣</div>
+                <div class="timeline-content">
+                    <h4>Répétez le processus !</h4>
+                    <p>Commitez souvent, avec des changements logiques et cohérents.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="final-message">
+        <h3>🎉 Félicitations !</h3>
+        <p>Vous maîtrisez maintenant les commandes Git essentielles. La prochaine étape : apprendre à collaborer avec les dépôts distants (GitHub/GitLab) !</p>
+    </div>
 </section>
+
+<style>
+.command-card {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-light);
+    border-radius: 8px;
+    padding: var(--spacing-md);
+    margin: var(--spacing-sm) 0;
+}
+
+.command-title {
+    font-weight: 600;
+    color: var(--primary);
+    margin-bottom: var(--spacing-sm);
+    font-size: var(--font-size-sm);
+}
+
+.command-example {
+    display: block;
+    background: var(--primary-dark);
+    color: #ffffff;
+    padding: var(--spacing-sm) var(--spacing-md);
+    border-radius: 4px;
+    font-family: var(--font-family-mono);
+    font-size: var(--font-size-sm);
+    cursor: pointer;
+    transition: all var(--transition-base);
+    margin: var(--spacing-xs) 0;
+    border: 2px solid transparent;
+}
+
+.command-example:hover {
+    background: var(--primary);
+    border-color: var(--accent);
+    transform: translateY(-1px);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.command-example:active {
+    transform: translateY(0);
+    background: var(--accent);
+}
+
+.command-explanation {
+    margin-top: var(--spacing-sm);
+    font-size: var(--font-size-sm);
+    color: var(--text-secondary);
+    line-height: 1.5;
+}
+
+.command-explanation code {
+    background: var(--bg-tertiary);
+    padding: 2px 6px;
+    border-radius: 3px;
+    font-family: var(--font-family-mono);
+    font-size: 0.85em;
+}
+</style>
+
+<script>
+function copyCommand(element) {
+    const text = element.textContent.trim();
+    
+    navigator.clipboard.writeText(text).then(function() {
+        // Visual feedback
+        const originalBg = element.style.backgroundColor;
+        const originalText = element.textContent;
+        
+        element.style.backgroundColor = '#27ae60';
+        element.textContent = '✓ Copié ! - ' + text;
+        
+        setTimeout(function() {
+            element.style.backgroundColor = originalBg;
+            element.textContent = originalText;
+        }, 2000);
+    }).catch(function(err) {
+        console.error('Erreur lors de la copie:', err);
+        // Fallback pour les navigateurs plus anciens
+        element.style.backgroundColor = '#f39c12';
+        element.textContent = '⚠️ Copiez manuellement - ' + text;
+        
+        setTimeout(function() {
+            element.style.backgroundColor = '';
+            element.textContent = text;
+        }, 3000);
+    });
+}
+</script>

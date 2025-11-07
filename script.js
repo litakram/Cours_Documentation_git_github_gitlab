@@ -203,9 +203,11 @@ document.addEventListener('DOMContentLoaded', function() {
 
 document.addEventListener('DOMContentLoaded', function() {
     const sectionsToLoad = [
+        { id: 'Qu-est-ce-que-Git-placeholder', url: 'sections/Qu-est-ce-que-Git.html' },
         { id: 'git-installation-placeholder', url: 'sections/git-installation.html' },
         { id: 'basic-commands-placeholder', url: 'sections/basic-commands.html' },
         { id: 'branching-tutorial-placeholder', url: 'sections/branching-tutorial.html' }
+        
     ];
 
     sectionsToLoad.forEach(section => {
