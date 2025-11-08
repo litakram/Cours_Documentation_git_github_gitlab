@@ -1,17 +1,1196 @@
 <section id="git-installation" class="doc-section">
-    <h2>Installation de Git</h2>
+    <h1 class="page-title">📥 Installation et Configuration de Git</h1>
+    <p class="page-subtitle">Guide complet pour installer et configurer Git sur votre machine</p>
     
-    <p class="lead">Cette section sera complétée par un membre de l'équipe. Elle couvrira l'installation de Git sur différents systèmes d'exploitation.</p>
-    
-    <div class="alert alert-info">
-        <div class="alert-icon">📝</div>
+    <div class="alert alert-success">
+        <div class="alert-icon">🎯</div>
         <div class="alert-content">
-            <strong>À compléter</strong>
-            <p>Cette section attend les contributions de l'équipe pour couvrir l'installation sur Windows, macOS, et Linux.</p>
+            <strong>Objectifs de cette section</strong>
+            <ul style="margin: 0.5rem 0 0 0; padding-left: 1.5rem;">
+                <li>Installer Git sur votre machine (Windows, macOS ou Linux)</li>
+                <li>Vérifier que Git fonctionne correctement</li>
+                <li>Configurer votre nom et votre email pour enregistrer votre identité</li>
+                <li>Comprendre comment Git gère les paramètres selon 3 niveaux hiérarchiques</li>
+            </ul>
         </div>
     </div>
-    
-    <!-- TODO: Add installation instructions for each OS -->
-    <!-- TODO: Add screenshots of the installation process -->
-    <!-- TODO: Add verification steps to confirm Git is installed -->
+
+    <!-- Étape 1: Installation -->
+    <section class="installation-section">
+        <h2 id="etape-installation">📦 Étape 1 : Installer Git</h2>
+        <p class="lead">Git est disponible pour tous les systèmes d'exploitation. Choisissez votre plateforme :</p>
+
+        <div class="os-installation-grid">
+            <!-- Windows Installation Card -->
+            <div class="os-card">
+                <div class="os-header">
+                    <span class="os-icon">🪟</span>
+                    <h3>Installation sur Windows</h3>
+                </div>
+                <div class="installation-steps">
+                    <div class="step">
+                        <div class="step-number">1</div>
+                        <div class="step-content">
+                            <h4>Télécharger Git</h4>
+                            <p>Aller sur <a href="https://git-scm.com" target="_blank" class="external-link">https://git-scm.com</a></p>
+                            <p>Télécharger <code>Git-Setup.exe</code> (dernière version stable)</p>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">2</div>
+                        <div class="step-content">
+                            <h4>Lancer l'installation</h4>
+                            <p>Double-cliquer sur le fichier téléchargé</p>
+                            <div class="config-tip">
+                                <strong>⚙️ Configuration importante :</strong>
+                                <p>Choisir <strong>"Use Git from Windows Command Prompt"</strong></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">3</div>
+                        <div class="step-content">
+                            <h4>Finaliser</h4>
+                            <p>Conserver les options par défaut et cliquer sur <strong>Finish</strong></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- macOS Installation Card -->
+            <div class="os-card">
+                <div class="os-header">
+                    <span class="os-icon">🍎</span>
+                    <h3>Installation sur macOS</h3>
+                </div>
+                <div class="installation-options">
+                    <h4>Choisissez votre méthode d'installation :</h4>
+                    
+                    <div class="option-card">
+                        <div class="option-header">
+                            <span class="option-icon">📦</span>
+                            <h5>Option 1 : Installation officielle</h5>
+                        </div>
+                        <div class="installation-steps">
+                            <div class="step">
+                                <div class="step-number">1</div>
+                                <div class="step-content">
+                                    <p>Télécharger le fichier <code>.dmg</code> depuis <a href="https://git-scm.com" target="_blank" class="external-link">https://git-scm.com</a></p>
+                                </div>
+                            </div>
+                            <div class="step">
+                                <div class="step-number">2</div>
+                                <div class="step-content">
+                                    <p>Ouvrir le fichier <code>.dmg</code> et suivre les instructions</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="option-card">
+                        <div class="option-header">
+                            <span class="option-icon">🍺</span>
+                            <h5>Option 2 : Via Homebrew (recommandé)</h5>
+                        </div>
+                        <div class="installation-steps">
+                            <div class="step">
+                                <div class="step-number">1</div>
+                                <div class="step-content">
+                                    <p>Ouvrir le Terminal</p>
+                                </div>
+                            </div>
+                            <div class="step">
+                                <div class="step-number">2</div>
+                                <div class="step-content">
+                                    <p>Installer via Homebrew :</p>
+                                    <code class="command-example" onclick="copyCommand(this)">brew install git</code>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Linux Installation Card -->
+            <div class="os-card">
+                <div class="os-header">
+                    <span class="os-icon">🐧</span>
+                    <h3>Installation sur Linux</h3>
+                </div>
+                <div class="installation-steps">
+                    <div class="step">
+                        <div class="step-number">1</div>
+                        <div class="step-content">
+                            <h4>Ouvrir un terminal</h4>
+                            <p>Utiliser <kbd>Ctrl + Alt + T</kbd> ou chercher "Terminal" dans les applications</p>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">2</div>
+                        <div class="step-content">
+                            <h4>Installer Git</h4>
+                            <p>Exécuter la commande suivante :</p>
+                            <code class="command-example" onclick="copyCommand(this)">sudo apt-get install git</code>
+                            <div class="config-tip">
+                                <strong>📝 Note :</strong>
+                                <p>Cette commande fonctionne sur Ubuntu/Debian. Pour d'autres distributions, utilisez votre gestionnaire de paquets.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Vérification commune -->
+        <div class="verification-section">
+            <h3>✅ Vérification de l'installation</h3>
+            <p>Quelle que soit votre plateforme, vérifiez que Git est correctement installé :</p>
+            <div class="verification-card">
+                <div class="verification-step">
+                    <span class="verification-icon">💻</span>
+                    <div class="verification-content">
+                        <h4>Ouvrir un terminal/invite de commandes</h4>
+                        <ul>
+                            <li><strong>Windows :</strong> Git Bash ou Invite de commandes</li>
+                            <li><strong>macOS/Linux :</strong> Terminal</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="verification-step">
+                    <span class="verification-icon">🔍</span>
+                    <div class="verification-content">
+                        <h4>Vérifier la version</h4>
+                        <code class="command-example" onclick="copyCommand(this)">git --version</code>
+                        <div class="expected-output">
+                            <strong>Résultat attendu :</strong>
+                            <code>git version 2.43.0 (ou plus récent)</code>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Étape 2: Configuration -->
+    <section class="configuration-section">
+        <h2 id="etape-configuration">⚙️ Étape 2 : Configurer Git (Votre identité)</h2>
+        <p class="lead">Git doit savoir qui fait les modifications, il faut donc définir votre nom et email.</p>
+
+        <div class="config-explanation">
+            <div class="explanation-card">
+                <div class="explanation-icon">🆔</div>
+                <div class="explanation-content">
+                    <h3>Pourquoi configurer son identité ?</h3>
+                    <ul>
+                        <li>Ces informations apparaissent dans <strong>chaque commit</strong></li>
+                        <li>Permet de tracer qui a fait quoi dans l'historique</li>
+                        <li>Essentiel pour la collaboration en équipe</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="config-commands">
+            <h3>🔧 Commandes de configuration</h3>
+            <div class="command-grid">
+                <div class="command-card">
+                    <div class="command-title">Configurer votre nom</div>
+                    <code class="command-example" onclick="copyCommand(this)">git config --global user.name "Votre Nom"</code>
+                    <div class="command-explanation">
+                        <strong>Exemple pratique :</strong>
+                        <code class="command-example" onclick="copyCommand(this)">git config --global user.name "Jean Dupont"</code>
+                    </div>
+                </div>
+
+                <div class="command-card">
+                    <div class="command-title">Configurer votre email</div>
+                    <code class="command-example" onclick="copyCommand(this)">git config --global user.email "votre@email.com"</code>
+                    <div class="command-explanation">
+                        <strong>Exemple pratique :</strong>
+                        <code class="command-example" onclick="copyCommand(this)">git config --global user.email "jean.dupont@example.com"</code>
+                    </div>
+                </div>
+            </div>
+
+            <div class="config-note">
+                <div class="note-icon">ℹ️</div>
+                <div class="note-content">
+                    <strong>Le paramètre <code>--global</code></strong>
+                    <p>S'applique à <strong>tous les projets</strong> sur cet ordinateur. Vous n'aurez à le faire qu'une seule fois !</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Étape 3: Niveaux de configuration -->
+    <section class="levels-section">
+        <h2 id="etape-niveaux">🏗️ Étape 3 : Les 3 niveaux de configuration Git</h2>
+        <p class="lead">Git organise ses paramètres selon une hiérarchie à 3 niveaux. Comprendre cette hiérarchie est essentiel !</p>
+
+        <div class="analogy-card">
+            <div class="analogy-icon">🏫</div>
+            <div class="analogy-content">
+                <h3>Analogie simple</h3>
+                <p><strong>C'est comme les lois d'un pays (système), les règles de l'école (global) et celles de la classe (local).</strong></p>
+                <p>Les règles les plus spécifiques (locales) ont priorité sur les plus générales.</p>
+            </div>
+        </div>
+
+        <div class="levels-table-wrapper">
+            <table class="levels-table">
+                <thead>
+                    <tr>
+                        <th>Niveau</th>
+                        <th>Portée</th>
+                        <th>Commande</th>
+                        <th>Fichier de configuration</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="level-system">
+                        <td>
+                            <span class="level-badge system">🌍 Système</span>
+                        </td>
+                        <td>Tous les utilisateurs</td>
+                        <td><code>git config --system</code></td>
+                        <td><code>/etc/gitconfig</code></td>
+                    </tr>
+                    <tr class="level-global">
+                        <td>
+                            <span class="level-badge global">👤 Global</span>
+                        </td>
+                        <td>Un seul utilisateur</td>
+                        <td><code>git config --global</code></td>
+                        <td><code>~/.gitconfig</code></td>
+                    </tr>
+                    <tr class="level-local">
+                        <td>
+                            <span class="level-badge local">📁 Local</span>
+                        </td>
+                        <td>Un seul projet</td>
+                        <td><code>git config --local</code></td>
+                        <td><code>.git/config</code></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="priority-section">
+            <h3>🥇 Ordre de priorité</h3>
+            <div class="priority-flow">
+                <div class="priority-item highest">
+                    <div class="priority-number">1</div>
+                    <div class="priority-content">
+                        <h4>Local</h4>
+                        <p>Priorité maximale</p>
+                    </div>
+                </div>
+                <div class="priority-arrow">→</div>
+                <div class="priority-item medium">
+                    <div class="priority-number">2</div>
+                    <div class="priority-content">
+                        <h4>Global</h4>
+                        <p>Priorité moyenne</p>
+                    </div>
+                </div>
+                <div class="priority-arrow">→</div>
+                <div class="priority-item lowest">
+                    <div class="priority-number">3</div>
+                    <div class="priority-content">
+                        <h4>Système</h4>
+                        <p>Priorité minimale</p>
+                    </div>
+                </div>
+            </div>
+            <p class="priority-explanation">
+                <strong>Principe :</strong> Si un paramètre est défini à plusieurs niveaux, Git utilise celui du niveau le plus spécifique (local > global > système).
+            </p>
+        </div>
+    </section>
+
+    <!-- Étape 4: Vérification -->
+    <section class="verification-config-section">
+        <h2 id="etape-verification">🔍 Étape 4 : Vérifier vos paramètres</h2>
+        <p class="lead">Apprenez à consulter et vérifier vos configurations Git.</p>
+
+        <div class="verification-commands">
+            <div class="command-section">
+                <h3>📋 Commandes de vérification</h3>
+                <div class="command-grid">
+                    <div class="command-card">
+                        <div class="command-title">Voir tous les paramètres</div>
+                        <code class="command-example" onclick="copyCommand(this)">git config --list</code>
+                        <div class="command-explanation">Affiche toutes les configurations (tous niveaux confondus)</div>
+                    </div>
+
+                    <div class="command-card">
+                        <div class="command-title">Paramètres système uniquement</div>
+                        <code class="command-example" onclick="copyCommand(this)">git config --system --list</code>
+                        <div class="command-explanation">Affiche uniquement les configurations au niveau système</div>
+                    </div>
+
+                    <div class="command-card">
+                        <div class="command-title">Paramètres globaux uniquement</div>
+                        <code class="command-example" onclick="copyCommand(this)">git config --global --list</code>
+                        <div class="command-explanation">Affiche uniquement vos configurations personnelles</div>
+                    </div>
+
+                    <div class="command-card">
+                        <div class="command-title">Paramètres locaux uniquement</div>
+                        <code class="command-example" onclick="copyCommand(this)">git config --local --list</code>
+                        <div class="command-explanation">Affiche uniquement les configurations du projet actuel</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="specific-check">
+                <h3>🎯 Vérifications spécifiques</h3>
+                <div class="check-grid">
+                    <div class="check-item">
+                        <div class="check-icon">👤</div>
+                        <div class="check-content">
+                            <h4>Vérifier votre nom</h4>
+                            <code class="command-example" onclick="copyCommand(this)">git config user.name</code>
+                        </div>
+                    </div>
+                    <div class="check-item">
+                        <div class="check-icon">📧</div>
+                        <div class="check-content">
+                            <h4>Vérifier votre email</h4>
+                            <code class="command-example" onclick="copyCommand(this)">git config user.email</code>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Étape 5: Exercice pratique -->
+    <section class="exercise-section">
+        <h2 id="etape-exercice">🏃‍♂️ Étape 5 : Exercice pratique</h2>
+        <p class="lead">Mettons en pratique tout ce que nous venons d'apprendre !</p>
+
+        <div class="exercise-card">
+            <div class="exercise-header">
+                <span class="exercise-icon">🎯</span>
+                <h3>Objectif de l'exercice</h3>
+            </div>
+            <div class="exercise-content">
+                <p>Que chaque étudiant voie <strong>son nom et son email</strong> apparaître dans la configuration Git.</p>
+            </div>
+        </div>
+
+        <div class="exercise-steps">
+            <h3>📝 Activités à réaliser</h3>
+            <div class="activity-list">
+                <div class="activity-item">
+                    <div class="activity-number">1</div>
+                    <div class="activity-content">
+                        <h4>Ouvrir Git Bash ou le Terminal</h4>
+                        <ul>
+                            <li><strong>Windows :</strong> Clic droit → "Git Bash Here" ou chercher "Git Bash"</li>
+                            <li><strong>macOS/Linux :</strong> Ouvrir l'application Terminal</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="activity-item">
+                    <div class="activity-number">2</div>
+                    <div class="activity-content">
+                        <h4>Vérifier que Git fonctionne</h4>
+                        <code class="command-example" onclick="copyCommand(this)">git --version</code>
+                        <div class="expected-result">
+                            <strong>✅ Résultat attendu :</strong> Une ligne indiquant la version de Git
+                        </div>
+                    </div>
+                </div>
+
+                <div class="activity-item">
+                    <div class="activity-number">3</div>
+                    <div class="activity-content">
+                        <h4>Configurer votre nom et email</h4>
+                        <div class="command-sequence">
+                            <code class="command-example" onclick="copyCommand(this)">git config --global user.name "Votre Nom Complet"</code>
+                            <code class="command-example" onclick="copyCommand(this)">git config --global user.email "votre@email.com"</code>
+                        </div>
+                        <div class="config-reminder">
+                            <strong>⚠️ Important :</strong> Remplacez par vos vraies informations !
+                        </div>
+                    </div>
+                </div>
+
+                <div class="activity-item">
+                    <div class="activity-number">4</div>
+                    <div class="activity-content">
+                        <h4>Vérifier avec la liste complète</h4>
+                        <code class="command-example" onclick="copyCommand(this)">git config --list</code>
+                        <div class="expected-result">
+                            <strong>✅ Résultat attendu :</strong> Vous devez voir apparaître :
+                            <ul>
+                                <li><code>user.name=Votre Nom Complet</code></li>
+                                <li><code>user.email=votre@email.com</code></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="activity-item">
+                    <div class="activity-number">5</div>
+                    <div class="activity-content">
+                        <h4>Vérification rapide individuelle</h4>
+                        <div class="command-sequence">
+                            <code class="command-example" onclick="copyCommand(this)">git config user.name</code>
+                            <code class="command-example" onclick="copyCommand(this)">git config user.email</code>
+                        </div>
+                        <div class="expected-result">
+                            <strong>✅ Résultat attendu :</strong> Chaque commande affiche votre information respective
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="success-message">
+            <div class="success-icon">🎉</div>
+            <div class="success-content">
+                <h3>Félicitations !</h3>
+                <p>Si vous voyez vos informations s'afficher correctement, <strong>Git est installé et configuré avec succès</strong> sur votre machine !</p>
+                <p>Vous êtes maintenant prêt(e) à commencer à utiliser Git pour vos projets.</p>
+            </div>
+        </div>
+    </section>
+
+    <div class="final-message">
+        <h3>🎯 Récapitulatif de l'installation</h3>
+        <p>Vous avez maintenant maîtrisé l'installation et la configuration de Git :</p>
+        <ul>
+            <li>✅ <strong>Installation</strong> - Git installé sur votre système</li>
+            <li>✅ <strong>Vérification</strong> - Version Git confirmée</li>
+            <li>✅ <strong>Configuration</strong> - Identité définie (nom et email)</li>
+            <li>✅ <strong>Niveaux</strong> - Compréhension de la hiérarchie des configurations</li>
+            <li>✅ <strong>Vérification</strong> - Capacité à consulter vos paramètres</li>
+        </ul>
+        <p><strong>Prochaine étape :</strong> Apprendre les commandes de base pour commencer à versioner vos projets ! 🚀</p>
+    </div>
 </section>
+
+<style>
+/* Installation specific styles */
+.installation-section {
+    margin: var(--spacing-2xl) 0;
+}
+
+/* OS Installation Grid */
+.os-installation-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: var(--spacing-xl);
+    margin: var(--spacing-xl) 0;
+}
+
+/* OS Cards */
+.os-card {
+    background: white;
+    border-radius: 12px;
+    padding: var(--spacing-xl);
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    border-left: 4px solid var(--accent);
+}
+
+.os-header {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-lg);
+}
+
+.os-icon {
+    font-size: var(--font-size-2xl);
+}
+
+.os-header h3 {
+    margin: 0;
+    color: var(--primary);
+}
+
+/* Installation Steps */
+.installation-steps {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-lg);
+}
+
+.step {
+    display: flex;
+    gap: var(--spacing-md);
+    align-items: flex-start;
+}
+
+.step-number {
+    background: var(--accent);
+    color: white;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: var(--font-size-sm);
+    flex-shrink: 0;
+}
+
+.step-content {
+    flex: 1;
+}
+
+.step-content h4 {
+    margin: 0 0 var(--spacing-sm) 0;
+    color: var(--primary);
+}
+
+.step-content p {
+    margin: var(--spacing-sm) 0;
+}
+
+.config-tip {
+    background: linear-gradient(135deg, #fff3cd 0%, #fef9e7 100%);
+    border: 1px solid #ffeaa7;
+    border-radius: 6px;
+    padding: var(--spacing-md);
+    margin-top: var(--spacing-sm);
+}
+
+.config-tip strong {
+    color: #856404;
+}
+
+/* Installation Options */
+.installation-options h4 {
+    color: var(--primary);
+    margin-bottom: var(--spacing-lg);
+}
+
+.option-card {
+    background: var(--bg-secondary);
+    border-radius: 8px;
+    padding: var(--spacing-lg);
+    margin: var(--spacing-md) 0;
+    border-left: 3px solid var(--accent);
+}
+
+.option-header {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    margin-bottom: var(--spacing-md);
+}
+
+.option-icon {
+    font-size: var(--font-size-lg);
+}
+
+.option-header h5 {
+    margin: 0;
+    color: var(--primary);
+}
+
+/* Verification Section */
+.verification-section {
+    background: var(--bg-tertiary);
+    border-radius: 8px;
+    padding: var(--spacing-xl);
+    margin: var(--spacing-xl) 0;
+}
+
+.verification-section h3 {
+    color: var(--primary);
+    margin-bottom: var(--spacing-lg);
+}
+
+.verification-card {
+    background: white;
+    border-radius: 8px;
+    padding: var(--spacing-lg);
+}
+
+.verification-step {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--spacing-md);
+    margin: var(--spacing-lg) 0;
+}
+
+.verification-icon {
+    font-size: var(--font-size-xl);
+    flex-shrink: 0;
+}
+
+.verification-content h4 {
+    margin: 0 0 var(--spacing-sm) 0;
+    color: var(--primary);
+}
+
+.expected-output {
+    background: var(--bg-secondary);
+    padding: var(--spacing-sm);
+    border-radius: 4px;
+    margin-top: var(--spacing-sm);
+    border-left: 3px solid #4caf50;
+}
+
+/* Configuration Section */
+.configuration-section,
+.levels-section,
+.verification-config-section,
+.exercise-section {
+    margin: var(--spacing-2xl) 0;
+    padding: var(--spacing-xl);
+    background: var(--bg-secondary);
+    border-radius: 12px;
+    border-left: 4px solid var(--accent);
+}
+
+.config-explanation {
+    margin: var(--spacing-lg) 0;
+}
+
+.explanation-card {
+    display: flex;
+    gap: var(--spacing-md);
+    background: white;
+    padding: var(--spacing-lg);
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.explanation-icon {
+    font-size: var(--font-size-2xl);
+    flex-shrink: 0;
+}
+
+.explanation-content h3 {
+    margin: 0 0 var(--spacing-sm) 0;
+    color: var(--primary);
+}
+
+.explanation-content ul {
+    margin: var(--spacing-sm) 0 0 0;
+    padding-left: var(--spacing-lg);
+}
+
+/* Command Grid */
+.config-commands,
+.verification-commands {
+    margin: var(--spacing-lg) 0;
+}
+
+.command-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: var(--spacing-lg);
+    margin: var(--spacing-lg) 0;
+}
+
+.command-card {
+    background: white;
+    border-radius: 8px;
+    padding: var(--spacing-lg);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.command-title {
+    font-weight: bold;
+    color: var(--primary);
+    margin-bottom: var(--spacing-md);
+}
+
+.command-example {
+    display: block;
+    background: var(--primary-dark);
+    color: white;
+    padding: var(--spacing-md);
+    border-radius: 4px;
+    font-family: var(--font-family-mono);
+    font-size: var(--font-size-sm);
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin: var(--spacing-sm) 0;
+}
+
+.command-example:hover {
+    background: var(--primary);
+}
+
+.command-explanation {
+    font-size: var(--font-size-sm);
+    color: var(--text-secondary);
+    margin-top: var(--spacing-sm);
+}
+
+.config-note {
+    display: flex;
+    gap: var(--spacing-md);
+    background: linear-gradient(135deg, #e3f2fd 0%, #f3e5f5 100%);
+    padding: var(--spacing-lg);
+    border-radius: 8px;
+    margin: var(--spacing-lg) 0;
+    border-left: 3px solid var(--accent);
+}
+
+.note-icon {
+    font-size: var(--font-size-xl);
+    flex-shrink: 0;
+}
+
+.note-content strong {
+    color: var(--primary);
+}
+
+/* Analogy Card */
+.analogy-card {
+    display: flex;
+    gap: var(--spacing-md);
+    background: linear-gradient(135deg, #fff3e0 0%, #fce4ec 100%);
+    padding: var(--spacing-lg);
+    border-radius: 8px;
+    margin: var(--spacing-lg) 0;
+    border-left: 3px solid #ff9800;
+}
+
+.analogy-icon {
+    font-size: var(--font-size-2xl);
+    flex-shrink: 0;
+}
+
+.analogy-content h3 {
+    margin: 0 0 var(--spacing-sm) 0;
+    color: var(--primary);
+}
+
+/* Levels Table */
+.levels-table-wrapper {
+    overflow-x: auto;
+    margin: var(--spacing-lg) 0;
+}
+
+.levels-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.levels-table th {
+    background: var(--primary-dark);
+    color: white;
+    padding: var(--spacing-md);
+    text-align: left;
+    font-weight: bold;
+}
+
+.levels-table td {
+    padding: var(--spacing-md);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.levels-table tr:last-child td {
+    border-bottom: none;
+}
+
+.level-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    padding: var(--spacing-xs) var(--spacing-sm);
+    border-radius: 20px;
+    font-size: var(--font-size-sm);
+    font-weight: bold;
+    color: white;
+}
+
+.level-badge.system {
+    background: #9c27b0;
+}
+
+.level-badge.global {
+    background: #2196f3;
+}
+
+.level-badge.local {
+    background: #4caf50;
+}
+
+.levels-table code {
+    background: var(--bg-secondary);
+    padding: var(--spacing-xs) var(--spacing-sm);
+    border-radius: 4px;
+    font-family: var(--font-family-mono);
+    font-size: var(--font-size-sm);
+}
+
+/* Priority Flow */
+.priority-section {
+    margin: var(--spacing-xl) 0;
+}
+
+.priority-flow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-md);
+    margin: var(--spacing-lg) 0;
+    flex-wrap: wrap;
+}
+
+.priority-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: white;
+    padding: var(--spacing-lg);
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    min-width: 120px;
+}
+
+.priority-item.highest {
+    border-left: 4px solid #4caf50;
+}
+
+.priority-item.medium {
+    border-left: 4px solid #2196f3;
+}
+
+.priority-item.lowest {
+    border-left: 4px solid #9c27b0;
+}
+
+.priority-number {
+    background: var(--accent);
+    color: white;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    margin-bottom: var(--spacing-sm);
+}
+
+.priority-content h4 {
+    margin: 0 0 var(--spacing-xs) 0;
+    color: var(--primary);
+}
+
+.priority-content p {
+    margin: 0;
+    font-size: var(--font-size-sm);
+    color: var(--text-secondary);
+}
+
+.priority-arrow {
+    font-size: var(--font-size-xl);
+    color: var(--accent);
+    font-weight: bold;
+}
+
+.priority-explanation {
+    text-align: center;
+    background: var(--bg-tertiary);
+    padding: var(--spacing-md);
+    border-radius: 6px;
+    margin-top: var(--spacing-lg);
+}
+
+/* Check Grid */
+.check-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--spacing-lg);
+    margin: var(--spacing-lg) 0;
+}
+
+.check-item {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+    background: white;
+    padding: var(--spacing-lg);
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.check-icon {
+    font-size: var(--font-size-xl);
+    flex-shrink: 0;
+}
+
+.check-content h4 {
+    margin: 0 0 var(--spacing-sm) 0;
+    color: var(--primary);
+}
+
+/* Exercise Section */
+.exercise-card {
+    background: white;
+    border-radius: 8px;
+    padding: var(--spacing-lg);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    margin: var(--spacing-lg) 0;
+}
+
+.exercise-header {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-md);
+}
+
+.exercise-icon {
+    font-size: var(--font-size-xl);
+}
+
+.exercise-header h3 {
+    margin: 0;
+    color: var(--primary);
+}
+
+/* Activity List */
+.activity-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xl);
+    margin: var(--spacing-lg) 0;
+}
+
+.activity-item {
+    background: white;
+    border-radius: 8px;
+    padding: var(--spacing-lg);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    position: relative;
+}
+
+.activity-number {
+    position: absolute;
+    top: -10px;
+    left: 20px;
+    background: var(--accent);
+    color: white;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+}
+
+.activity-content {
+    margin-top: var(--spacing-sm);
+}
+
+.activity-content h4 {
+    margin: 0 0 var(--spacing-md) 0;
+    color: var(--primary);
+}
+
+.activity-content ul {
+    margin: var(--spacing-sm) 0;
+    padding-left: var(--spacing-lg);
+}
+
+.command-sequence {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+    margin: var(--spacing-sm) 0;
+}
+
+.expected-result {
+    background: linear-gradient(135deg, #e8f5e8 0%, #f0f8ff 100%);
+    border: 1px solid #c8e6c9;
+    border-radius: 6px;
+    padding: var(--spacing-md);
+    margin-top: var(--spacing-sm);
+}
+
+.expected-result strong {
+    color: #2e7d32;
+}
+
+.expected-result ul {
+    margin: var(--spacing-sm) 0 0 0;
+    padding-left: var(--spacing-lg);
+}
+
+.config-reminder {
+    background: linear-gradient(135deg, #fff3cd 0%, #fef9e7 100%);
+    border: 1px solid #ffeaa7;
+    border-radius: 6px;
+    padding: var(--spacing-md);
+    margin-top: var(--spacing-sm);
+}
+
+.config-reminder strong {
+    color: #856404;
+}
+
+/* Success Message */
+.success-message {
+    display: flex;
+    gap: var(--spacing-md);
+    background: linear-gradient(135deg, #e8f5e8 0%, #f0f8ff 100%);
+    border: 2px solid #4caf50;
+    border-radius: 8px;
+    padding: var(--spacing-xl);
+    margin: var(--spacing-xl) 0;
+}
+
+.success-icon {
+    font-size: var(--font-size-2xl);
+    flex-shrink: 0;
+}
+
+.success-content h3 {
+    margin: 0 0 var(--spacing-sm) 0;
+    color: var(--primary);
+}
+
+.success-content p {
+    margin: var(--spacing-sm) 0;
+}
+
+/* External Link */
+.external-link {
+    color: var(--accent);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.external-link:hover {
+    text-decoration: underline;
+}
+
+/* Final Message */
+.final-message {
+    background: linear-gradient(135deg, #e8f5e8 0%, #f3e5f5 100%);
+    border: 2px solid #4caf50;
+    border-radius: 12px;
+    padding: var(--spacing-2xl);
+    margin: var(--spacing-2xl) 0;
+    text-align: center;
+}
+
+.final-message h3 {
+    color: var(--primary);
+    margin-bottom: var(--spacing-lg);
+}
+
+.final-message ul {
+    text-align: left;
+    max-width: 600px;
+    margin: var(--spacing-lg) auto;
+}
+
+.final-message ul li {
+    margin: var(--spacing-sm) 0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .os-installation-grid {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-lg);
+    }
+    
+    .command-grid,
+    .check-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .priority-flow {
+        flex-direction: column;
+    }
+    
+    .priority-arrow {
+        transform: rotate(90deg);
+    }
+    
+    .step {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .verification-step,
+    .explanation-card,
+    .analogy-card,
+    .config-note,
+    .success-message {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .levels-table-wrapper {
+        font-size: var(--font-size-sm);
+    }
+}
+
+/* JavaScript for tab functionality */
+</style>
+
+<script>
+function copyCommand(element) {
+    const text = element.textContent;
+    
+    // Try modern clipboard API first
+    if (navigator.clipboard && window.isSecureContext) {
+        navigator.clipboard.writeText(text).then(() => {
+            showCopyFeedback(element);
+        }).catch(err => {
+            // Fallback if clipboard API fails
+            fallbackCopyTextToClipboard(text, element);
+        });
+    } else {
+        // Fallback for older browsers or non-secure contexts
+        fallbackCopyTextToClipboard(text, element);
+    }
+}
+
+function fallbackCopyTextToClipboard(text, element) {
+    const textArea = document.createElement('textarea');
+    textArea.value = text;
+    textArea.style.position = 'fixed';
+    textArea.style.left = '-999999px';
+    textArea.style.top = '-999999px';
+    document.body.appendChild(textArea);
+    textArea.focus();
+    textArea.select();
+    
+    try {
+        document.execCommand('copy');
+        showCopyFeedback(element);
+    } catch (err) {
+        console.error('Fallback: Oops, unable to copy', err);
+    }
+    
+    document.body.removeChild(textArea);
+}
+
+function showCopyFeedback(element) {
+    const originalBg = element.style.backgroundColor;
+    const originalColor = element.style.color;
+    
+    element.style.backgroundColor = '#4caf50';
+    element.style.color = 'white';
+    
+    setTimeout(() => {
+        element.style.backgroundColor = originalBg;
+        element.style.color = originalColor;
+    }, 300);
+}
+</script>

@@ -1,12 +1,1338 @@
 <section id="Qu-est-ce-que-Git" class="doc-section">
-    <h2>Qu'est-ce que Git ?</h2>
+    <h1 class="page-title">🧭 Introduction à Git – Cours Théorique</h1>
+    <p class="page-subtitle">Découvrez les concepts fondamentaux de Git et son environnement de travail</p>
     
-    <p class="lead">Cette section introduira Git, son histoire, et ses principales fonctionnalités.</p>
-    
-    <div class="alert alert-info">
-        <div class="alert-icon">📲</div>
+    <div class="alert alert-success">
+        <div class="alert-icon">🎯</div>
         <div class="alert-content">
-            <strong>À compléter</strong>
-            <p>Cette section attend les contributions de l'équipe pour expliquer les concepts fondamentaux de Git.</p>
+            <strong>Objectif de cette section</strong>
+            <p>Comprendre les concepts théoriques essentiels de Git : les dépôts, les zones de travail, les commits et les branches.</p>
         </div>
     </div>
+
+    <!-- Partie 1: Introduction et Environnement de Travail -->
+    <div id="introduction-environnement" class="section-divider">
+        <h2>📚 Partie 1 : Introduction et Environnement de Travail</h2>
+    </div>
+
+    <!-- 1.1 Qu'est-ce que Git ? -->
+    <section id="qu-est-ce-que-git-definition" class="subsection">
+        <h3>1.1 Qu'est-ce que Git ? 🤔</h3>
+        
+        <p class="lead">Git est un <strong>logiciel libre de gestion de versions</strong> (Version Control System – VCS). Il permet de suivre, sauvegarder et gérer les différentes versions des fichiers d'un projet, principalement dans le domaine du développement logiciel.</p>
+
+        <div class="definition-box">
+            <h4>🔍 Définition</h4>
+            <p><strong>Git</strong> = <strong>G</strong>lobal <strong>I</strong>nformation <strong>T</strong>racker</p>
+            <p>Un système qui suit et enregistre toutes les modifications apportées à vos fichiers au fil du temps.</p>
+        </div>
+
+        <h4>✨ Les Caractéristiques Principales de Git</h4>
+        
+        <div class="feature-list">
+            <div class="feature-item">
+                <div class="feature-icon">🌍</div>
+                <div class="feature-content">
+                    <h4>Multi-plateforme</h4>
+                    <p>Utilisable sur différents systèmes d'exploitation :</p>
+                    <ul>
+                        <li><strong>Windows</strong> - Interface graphique et ligne de commande</li>
+                        <li><strong>macOS</strong> - Intégré nativement ou via Homebrew</li>
+                        <li><strong>Linux</strong> - Disponible dans tous les dépôts de paquets</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="feature-item">
+                <div class="feature-icon">💻</div>
+                <div class="feature-content">
+                    <h4>Multi-langage</h4>
+                    <p>Compatible avec tout type de projet :</p>
+                    <ul>
+                        <li><strong>Code source</strong> - JavaScript, Python, Java, C++, etc.</li>
+                        <li><strong>Documentation</strong> - Markdown, LaTeX, Word, etc.</li>
+                        <li><strong>Configuration</strong> - JSON, YAML, XML, etc.</li>
+                        <li><strong>Assets</strong> - Images, vidéos, fichiers de design</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="feature-item">
+                <div class="feature-icon">👥</div>
+                <div class="feature-content">
+                    <h4>Collaboratif</h4>
+                    <p>Plusieurs personnes peuvent travailler simultanément sur le même projet :</p>
+                    <ul>
+                        <li><strong>Sans interférer</strong> directement avec le travail des autres</li>
+                        <li><strong>Fusion intelligente</strong> des modifications</li>
+                        <li><strong>Résolution de conflits</strong> guidée</li>
+                        <li><strong>Historique partagé</strong> accessible à tous</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="stat-card">
+            <div class="stat-number">🌟</div>
+            <div class="stat-label">Standard mondial dans le développement et la gestion de projets informatiques</div>
+        </div>
+    </section>
+
+    <!-- 1.2 Les Dépôts Git -->
+    <section id="depots-git" class="subsection">
+        <h3>1.2 Les Dépôts Git 📦</h3>
+        
+        <p class="lead">Le <strong>dépôt</strong> (ou repository) représente la base centrale du projet. Il contient l'ensemble des fichiers et l'historique de toutes les modifications effectuées.</p>
+
+        <div class="comparison-grid">
+            <div class="comparison-item">
+                <div class="depot-card local">
+                    <div class="depot-header">
+                        <span class="depot-icon">💻</span>
+                        <h4>Dépôt Local</h4>
+                    </div>
+                    <div class="depot-content">
+                        <p><strong>Localisation :</strong> Sur l'ordinateur du développeur</p>
+                        <p><strong>Fonction :</strong> Conserve toutes les données nécessaires au travail individuel</p>
+                        
+                        <h5>Avantages :</h5>
+                        <ul class="check-list">
+                            <li>Travail hors ligne possible</li>
+                            <li>Vitesse maximale (pas de réseau)</li>
+                            <li>Historique complet disponible</li>
+                            <li>Expérimentation sans risque</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="comparison-item">
+                <div class="depot-card remote">
+                    <div class="depot-header">
+                        <span class="depot-icon">☁️</span>
+                        <h4>Dépôt Distant</h4>
+                    </div>
+                    <div class="depot-content">
+                        <p><strong>Localisation :</strong> Plateforme en ligne (GitHub, GitLab)</p>
+                        <p><strong>Fonction :</strong> Point de rencontre pour partager et synchroniser</p>
+                        
+                        <h5>Avantages :</h5>
+                        <ul class="check-list">
+                            <li>Collaboration d'équipe</li>
+                            <li>Sauvegarde sécurisée</li>
+                            <li>Accès depuis partout</li>
+                            <li>Intégration avec outils</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="workflow-diagram">
+            <h4>🔄 Relation Local ↔ Distant</h4>
+            <div class="workflow-steps">
+                <div class="workflow-step">
+                    <div class="step-icon">📥</div>
+                    <div class="step-content">
+                        <strong>Clone/Pull</strong>
+                        <p>Récupérer les données du dépôt distant</p>
+                    </div>
+                </div>
+                <div class="workflow-arrow">→</div>
+                <div class="workflow-step">
+                    <div class="step-icon">⚙️</div>
+                    <div class="step-content">
+                        <strong>Travail Local</strong>
+                        <p>Modifications, commits, branches</p>
+                    </div>
+                </div>
+                <div class="workflow-arrow">→</div>
+                <div class="workflow-step">
+                    <div class="step-icon">📤</div>
+                    <div class="step-content">
+                        <strong>Push</strong>
+                        <p>Envoyer les changements vers le distant</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Partie 2: Le Flux de Travail Local -->
+    <div id="flux-travail-local" class="section-divider">
+        <h2>⚙️ Partie 2 : Le Flux de Travail Local et le Cycle de Validation</h2>
+    </div>
+
+    <!-- 2.1 Les Trois Zones de Travail -->
+    <section id="trois-zones-travail" class="subsection">
+        <h3>2.1 Les Trois Zones de Travail 🏗️</h3>
+        
+        <p class="lead">Git organise le travail sur un projet à travers <strong>trois zones distinctes</strong>. Comprendre ces zones est essentiel pour maîtriser Git !</p>
+
+        <div class="zones-container">
+            <div class="zone-card working-dir">
+                <div class="zone-header">
+                    <span class="zone-number">1</span>
+                    <span class="zone-icon">📝</span>
+                    <h4>Répertoire de Travail</h4>
+                    <span class="zone-subtitle">(Working Directory)</span>
+                </div>
+                <div class="zone-content">
+                    <p><strong>C'est votre espace de travail quotidien !</strong></p>
+                    <ul>
+                        <li>Fichiers accessibles et modifiables</li>
+                        <li>Là où vous codez, éditez, créez</li>
+                        <li>Modifications visibles dans votre éditeur</li>
+                        <li>État "non suivi" par Git jusqu'à ajout</li>
+                    </ul>
+                    <div class="zone-example">
+                        <strong>Exemple :</strong> Vous ouvrez <code>index.html</code> et modifiez le titre de votre page web.
+                    </div>
+                </div>
+            </div>
+
+            <div class="zone-arrow">↓</div>
+
+            <div class="zone-card staging-area">
+                <div class="zone-header">
+                    <span class="zone-number">2</span>
+                    <span class="zone-icon">📋</span>
+                    <h4>Index / Zone de Transit</h4>
+                    <span class="zone-subtitle">(Staging Area)</span>
+                </div>
+                <div class="zone-content">
+                    <p><strong>La préparation avant l'enregistrement !</strong></p>
+                    <ul>
+                        <li>Zone intermédiaire de préparation</li>
+                        <li>Regroupe les modifications à valider</li>
+                        <li>Permet de choisir quoi enregistrer</li>
+                        <li>Contrôle précis des commits</li>
+                    </ul>
+                    <div class="zone-example">
+                        <strong>Commande :</strong> <code>git add index.html</code> place le fichier dans l'index.
+                    </div>
+                </div>
+            </div>
+
+            <div class="zone-arrow">↓</div>
+
+            <div class="zone-card head">
+                <div class="zone-header">
+                    <span class="zone-number">3</span>
+                    <span class="zone-icon">📚</span>
+                    <h4>HEAD / Dépôt Local</h4>
+                    <span class="zone-subtitle">(Repository)</span>
+                </div>
+                <div class="zone-content">
+                    <p><strong>L'historique permanent de votre projet !</strong></p>
+                    <ul>
+                        <li>Dernière version validée du projet</li>
+                        <li>Repère pointant vers le dernier commit</li>
+                        <li>Historique complet des modifications</li>
+                        <li>Base pour toutes les opérations Git</li>
+                    </ul>
+                    <div class="zone-example">
+                        <strong>Commande :</strong> <code>git commit -m "Update page title"</code> enregistre définitivement.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="callout">
+            <strong>🎯 Pourquoi Trois Zones ?</strong>
+            <p>Cette architecture offre un <strong>contrôle précis et progressif</strong> du processus de sauvegarde. Vous pouvez :</p>
+            <ul>
+                <li>Travailler sur plusieurs fonctionnalités simultanément</li>
+                <li>Choisir exactement quoi enregistrer</li>
+                <li>Créer des commits logiques et cohérents</li>
+                <li>Annuler facilement à chaque étape</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- 2.2 La Validation (Commit) -->
+    <section id="validation-commit" class="subsection">
+        <h3>2.2 La Validation (Commit) ✅</h3>
+        
+        <p class="lead">Un <strong>commit</strong> correspond à une étape d'enregistrement dans l'évolution du projet. Il capture l'état des fichiers à un instant donné, comparable à une <strong>"photo" dans le temps</strong>.</p>
+
+        <div class="commit-anatomy">
+            <h4>🔍 Anatomie d'un Commit</h4>
+            <div class="commit-structure">
+                <div class="commit-element">
+                    <div class="element-icon">💬</div>
+                    <div class="element-content">
+                        <h5>Message de Validation</h5>
+                        <p>Description textuelle du changement effectué</p>
+                        <div class="element-example">
+                            <strong>Exemple :</strong> "feat: Add user login functionality"
+                        </div>
+                    </div>
+                </div>
+
+                <div class="commit-element">
+                    <div class="element-icon">🔑</div>
+                    <div class="element-content">
+                        <h5>Référence Unique (Hash)</h5>
+                        <p>Identifiant unique permettant de retrouver le commit</p>
+                        <div class="element-example">
+                            <strong>Exemple :</strong> <code>a7b2c1d</code> (forme courte) ou <code>a7b2c1d4e5f6...</code> (complète)
+                        </div>
+                    </div>
+                </div>
+
+                <div class="commit-element">
+                    <div class="element-icon">👤</div>
+                    <div class="element-content">
+                        <h5>Métadonnées</h5>
+                        <p>Informations sur l'auteur et la date</p>
+                        <div class="element-example">
+                            <strong>Auteur :</strong> Jean Dupont &lt;jean@example.com&gt;<br>
+                            <strong>Date :</strong> 2024-11-07 14:30:45 +0100
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="timeline-concept">
+            <h4>📈 Chaîne Chronologique des Commits</h4>
+            <p>Les commits forment une <strong>chaîne chronologique</strong> retraçant tout l'historique du projet :</p>
+            
+            <div class="commit-timeline">
+                <div class="timeline-commit">
+                    <div class="commit-dot first"></div>
+                    <div class="commit-info">
+                        <strong>Initial commit</strong>
+                        <span>Création du projet</span>
+                    </div>
+                </div>
+                <div class="timeline-line"></div>
+                <div class="timeline-commit">
+                    <div class="commit-dot"></div>
+                    <div class="commit-info">
+                        <strong>Add HTML structure</strong>
+                        <span>Structure de base</span>
+                    </div>
+                </div>
+                <div class="timeline-line"></div>
+                <div class="timeline-commit">
+                    <div class="commit-dot"></div>
+                    <div class="commit-info">
+                        <strong>Style the header</strong>
+                        <span>CSS pour l'en-tête</span>
+                    </div>
+                </div>
+                <div class="timeline-line"></div>
+                <div class="timeline-commit">
+                    <div class="commit-dot current"></div>
+                    <div class="commit-info">
+                        <strong>Add user login</strong>
+                        <span>Système de connexion</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="benefits-box">
+            <h4>🎁 Cette Structure Permet :</h4>
+            <div class="benefits-grid">
+                <div class="benefit-item">
+                    <span class="benefit-icon">👁️</span>
+                    <strong>Consultation</strong>
+                    <p>Voir l'évolution du projet</p>
+                </div>
+                <div class="benefit-item">
+                    <span class="benefit-icon">⚖️</span>
+                    <strong>Comparaison</strong>
+                    <p>Différences entre versions</p>
+                </div>
+                <div class="benefit-item">
+                    <span class="benefit-icon">⏪</span>
+                    <strong>Restauration</strong>
+                    <p>Revenir à une version antérieure</p>
+                </div>
+                <div class="benefit-item">
+                    <span class="benefit-icon">🔍</span>
+                    <strong>Investigation</strong>
+                    <p>Trouver quand un bug est apparu</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Partie 3: Gestion des Branches -->
+    <div id="gestion-branches" class="section-divider">
+        <h2>🌿 Partie 3 : Gestion des Branches</h2>
+    </div>
+
+    <!-- 3.1 Le Concept de Branche -->
+    <section id="concept-branche" class="subsection">
+        <h3>3.1 Le Concept de Branche 🌳</h3>
+        
+        <p class="lead">Une <strong>branche</strong> est une ligne de développement indépendante à l'intérieur d'un même projet. Elle permet d'expérimenter ou d'ajouter de nouvelles fonctionnalités <strong>sans affecter la version principale</strong>.</p>
+
+        <div class="branch-visual">
+            <h4>🎋 Visualisation des Branches</h4>
+            <div class="branch-diagram">
+                <div class="branch-line main-branch">
+                    <span class="branch-label">main</span>
+                    <div class="branch-commits">
+                        <div class="branch-commit">A</div>
+                        <div class="branch-commit">B</div>
+                        <div class="branch-commit">C</div>
+                        <div class="branch-commit merge">F</div>
+                        <div class="branch-commit">G</div>
+                    </div>
+                </div>
+                <div class="branch-connector"></div>
+                <div class="branch-line feature-branch">
+                    <span class="branch-label">feature</span>
+                    <div class="branch-commits">
+                        <div class="branch-commit">D</div>
+                        <div class="branch-commit">E</div>
+                    </div>
+                </div>
+            </div>
+            <p class="diagram-explanation">
+                La branche <code>feature</code> part du commit C, développe D et E, puis fusionne en F avec <code>main</code>.
+            </p>
+        </div>
+
+        <div class="characteristics-grid">
+            <h4>✨ Caractéristiques d'une Branche</h4>
+            
+            <div class="characteristic-card">
+                <div class="char-icon">🎯</div>
+                <div class="char-content">
+                    <h5>Point de Départ</h5>
+                    <p>Elle part d'un point précis de l'historique (souvent la version principale)</p>
+                    <div class="char-example">
+                        <code>git checkout -b nouvelle-feature</code>
+                    </div>
+                </div>
+            </div>
+
+            <div class="characteristic-card">
+                <div class="char-icon">🔗</div>
+                <div class="char-content">
+                    <h5>Historique Propre</h5>
+                    <p>Elle conserve son propre enchaînement de commits</p>
+                    <div class="char-example">
+                        Chaque branche a sa propre timeline de commits
+                    </div>
+                </div>
+            </div>
+
+            <div class="characteristic-card">
+                <div class="char-icon">🔄</div>
+                <div class="char-content">
+                    <h5>Fusion Possible</h5>
+                    <p>Elle peut être fusionnée (intégrée) ultérieurement avec d'autres branches</p>
+                    <div class="char-example">
+                        <code>git merge nouvelle-feature</code>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="advantages-section">
+            <h4>🚀 L'Utilisation des Branches Favorise :</h4>
+            
+            <div class="advantage-list">
+                <div class="advantage-item">
+                    <div class="adv-icon">🏠</div>
+                    <div class="adv-content">
+                        <h5>Isolation du Développement</h5>
+                        <p>Chaque tâche ou fonctionnalité est développée séparément</p>
+                        <ul>
+                            <li>Pas d'interférence entre les développements</li>
+                            <li>Tests indépendants possibles</li>
+                            <li>Développement en parallèle</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="advantage-item">
+                    <div class="adv-icon">🛡️</div>
+                    <div class="adv-content">
+                        <h5>Sécurité du Code</h5>
+                        <p>Les erreurs sur une branche n'affectent pas le code stable</p>
+                        <ul>
+                            <li>Version principale toujours fonctionnelle</li>
+                            <li>Expérimentation sans risque</li>
+                            <li>Possibilité d'abandonner une branche</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="advantage-item">
+                    <div class="adv-icon">👥</div>
+                    <div class="adv-content">
+                        <h5>Collaboration</h5>
+                        <p>Plusieurs développeurs travaillent simultanément sur différentes parties</p>
+                        <ul>
+                            <li>Chacun sa branche de travail</li>
+                            <li>Fusion contrôlée des contributions</li>
+                            <li>Résolution de conflits organisée</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3.2 La Branche Principale et les Fusions -->
+    <section id="branche-principale-fusions" class="subsection">
+        <h3>3.2 La Branche Principale et les Fusions 🔄</h3>
+        
+        <p class="lead">La <strong>branche principale</strong> (souvent appelée <code>master</code> ou <code>main</code>) représente la <strong>version stable</strong> du projet.</p>
+
+        <div class="branch-purposes">
+            <h4>🎯 À Quoi Servent les Autres Branches ?</h4>
+            
+            <div class="purpose-grid">
+                <div class="purpose-card experiment">
+                    <div class="purpose-icon">🧪</div>
+                    <div class="purpose-content">
+                        <h5>Tester de Nouvelles Idées</h5>
+                        <p>Expérimenter sans risquer la version stable</p>
+                        <div class="purpose-examples">
+                            <strong>Exemples :</strong>
+                            <ul>
+                                <li><code>experiment/new-ui</code></li>
+                                <li><code>research/performance</code></li>
+                                <li><code>prototype/ai-integration</code></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="purpose-card bugfix">
+                    <div class="purpose-icon">🐛</div>
+                    <div class="purpose-content">
+                        <h5>Corriger des Erreurs</h5>
+                        <p>Isoler la correction d'un bug spécifique</p>
+                        <div class="purpose-examples">
+                            <strong>Exemples :</strong>
+                            <ul>
+                                <li><code>fix/login-issue</code></li>
+                                <li><code>hotfix/security-patch</code></li>
+                                <li><code>bugfix/mobile-display</code></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="purpose-card feature">
+                    <div class="purpose-icon">⭐</div>
+                    <div class="purpose-content">
+                        <h5>Ajouter des Fonctionnalités</h5>
+                        <p>Développer de nouvelles capacités</p>
+                        <div class="purpose-examples">
+                            <strong>Exemples :</strong>
+                            <ul>
+                                <li><code>feature/user-profiles</code></li>
+                                <li><code>feat/payment-system</code></li>
+                                <li><code>enhancement/search</code></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="merge-process">
+            <h4>🔀 Le Processus de Fusion</h4>
+            <p>Lorsque le travail sur une branche secondaire est <strong>terminé et validé</strong>, il peut être fusionné avec la branche principale.</p>
+            
+            <div class="merge-steps">
+                <div class="merge-step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h5>Développement Terminé</h5>
+                        <p>La fonctionnalité est complète et testée</p>
+                        <code>git checkout feature/new-login</code>
+                    </div>
+                </div>
+
+                <div class="merge-step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h5>Retour sur Main</h5>
+                        <p>Se positionner sur la branche principale</p>
+                        <code>git checkout main</code>
+                    </div>
+                </div>
+
+                <div class="merge-step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h5>Fusion</h5>
+                        <p>Intégrer les changements de la branche</p>
+                        <code>git merge feature/new-login</code>
+                    </div>
+                </div>
+
+                <div class="merge-step">
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        <h5>Nettoyage</h5>
+                        <p>Supprimer la branche devenue inutile</p>
+                        <code>git branch -d feature/new-login</code>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="fusion-benefits">
+            <h4>🎁 Avantages de la Fusion</h4>
+            <div class="benefits-list">
+                <div class="benefit">
+                    <span class="benefit-icon">🔗</span>
+                    <strong>Réunification :</strong> Les différentes évolutions du projet sont réunies en un seul flux cohérent
+                </div>
+                <div class="benefit">
+                    <span class="benefit-icon">📚</span>
+                    <strong>Historique Préservé :</strong> L'histoire de développement de chaque fonctionnalité est conservée
+                </div>
+                <div class="benefit">
+                    <span class="benefit-icon">✅</span>
+                    <strong>Validation :</strong> Possibilité de réviser le code avant intégration
+                </div>
+                <div class="benefit">
+                    <span class="benefit-icon">🚀</span>
+                    <strong>Déploiement :</strong> Version stable toujours prête pour la production
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div id="recapitulatif-git" class="final-message">
+        <h3>🎯 Récapitulatif</h3>
+        <p>Vous maîtrisez maintenant les concepts fondamentaux de Git :</p>
+        <ul>
+            <li>✅ <strong>Nature de Git</strong> - Système de gestion de versions collaboratif</li>
+            <li>✅ <strong>Dépôts</strong> - Local et distant, leur rôle respectif</li>
+            <li>✅ <strong>Trois Zones</strong> - Working Directory, Staging Area, Repository</li>
+            <li>✅ <strong>Commits</strong> - Instantanés du projet avec métadonnées</li>
+            <li>✅ <strong>Branches</strong> - Lignes de développement parallèles</li>
+            <li>✅ <strong>Fusion</strong> - Intégration des développements</li>
+        </ul>
+        <p><strong>Prochaine étape :</strong> Apprendre les commandes pratiques pour utiliser ces concepts ! 🚀</p>
+    </div>
+</section>
+
+<style>
+/* Section Dividers */
+.section-divider {
+    margin: var(--spacing-2xl) 0;
+    padding: var(--spacing-lg) 0;
+    border-top: 2px solid var(--border-color);
+    border-bottom: 2px solid var(--border-color);
+    background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-tertiary) 100%);
+    text-align: center;
+}
+
+.section-divider h2 {
+    margin: 0;
+    color: var(--primary);
+    font-size: var(--font-size-2xl);
+}
+
+/* Subsections */
+.subsection {
+    margin: var(--spacing-2xl) 0;
+    padding: var(--spacing-xl);
+    background: var(--bg-secondary);
+    border-radius: 12px;
+    border-left: 4px solid var(--accent);
+}
+
+/* Definition Box */
+.definition-box {
+    background: linear-gradient(135deg, #e3f2fd 0%, #f3e5f5 100%);
+    border: 1px solid #bbdefb;
+    border-radius: 8px;
+    padding: var(--spacing-lg);
+    margin: var(--spacing-lg) 0;
+    text-align: center;
+}
+
+.definition-box h4 {
+    color: var(--primary);
+    margin-bottom: var(--spacing-sm);
+}
+
+/* Feature List */
+.feature-list {
+    display: grid;
+    gap: var(--spacing-lg);
+    margin: var(--spacing-lg) 0;
+}
+
+.feature-item {
+    display: flex;
+    gap: var(--spacing-md);
+    background: white;
+    padding: var(--spacing-lg);
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    align-items: flex-start;
+}
+
+.feature-icon {
+    font-size: var(--font-size-2xl);
+    flex-shrink: 0;
+}
+
+.feature-content h4 {
+    margin: 0 0 var(--spacing-sm) 0;
+    color: var(--primary);
+}
+
+.feature-content ul {
+    margin: var(--spacing-sm) 0 0 0;
+    padding-left: var(--spacing-lg);
+}
+
+/* Stat Card */
+.stat-card {
+    text-align: center;
+    background: linear-gradient(135deg, var(--accent) 0%, var(--primary) 100%);
+    color: white;
+    padding: var(--spacing-lg);
+    border-radius: 8px;
+    margin: var(--spacing-lg) 0;
+}
+
+.stat-number {
+    font-size: var(--font-size-3xl);
+    margin-bottom: var(--spacing-sm);
+}
+
+.stat-label {
+    font-weight: bold;
+    font-size: var(--font-size-lg);
+}
+
+/* Comparison Grid */
+.comparison-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: var(--spacing-lg);
+    margin: var(--spacing-lg) 0;
+}
+
+/* Depot Cards */
+.depot-card {
+    background: white;
+    border-radius: 12px;
+    padding: var(--spacing-lg);
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    border-left: 4px solid transparent;
+}
+
+.depot-card.local {
+    border-left-color: #4caf50;
+}
+
+.depot-card.remote {
+    border-left-color: #2196f3;
+}
+
+.depot-header {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    margin-bottom: var(--spacing-md);
+}
+
+.depot-icon {
+    font-size: var(--font-size-xl);
+}
+
+.depot-header h4 {
+    margin: 0;
+    color: var(--primary);
+}
+
+.depot-content h5 {
+    margin: var(--spacing-md) 0 var(--spacing-sm) 0;
+    color: var(--primary);
+}
+
+.check-list {
+    list-style: none;
+    padding-left: 0;
+}
+
+.check-list li {
+    position: relative;
+    padding-left: var(--spacing-lg);
+    margin: var(--spacing-sm) 0;
+}
+
+.check-list li:before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: #4caf50;
+    font-weight: bold;
+}
+
+/* Workflow Diagram */
+.workflow-diagram {
+    background: var(--bg-tertiary);
+    border-radius: 8px;
+    padding: var(--spacing-lg);
+    margin: var(--spacing-lg) 0;
+}
+
+.workflow-steps {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-md);
+    flex-wrap: wrap;
+}
+
+.workflow-step {
+    text-align: center;
+    padding: var(--spacing-md);
+    background: white;
+    border-radius: 8px;
+    min-width: 120px;
+}
+
+.step-icon {
+    font-size: var(--font-size-2xl);
+    margin-bottom: var(--spacing-sm);
+}
+
+.workflow-arrow {
+    font-size: var(--font-size-xl);
+    color: var(--accent);
+    font-weight: bold;
+}
+
+/* Zones Container */
+.zones-container {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+    margin: var(--spacing-xl) 0;
+}
+
+.zone-card {
+    background: white;
+    border-radius: 12px;
+    padding: var(--spacing-lg);
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    border-left: 4px solid transparent;
+}
+
+.zone-card.working-dir {
+    border-left-color: #ff9800;
+}
+
+.zone-card.staging-area {
+    border-left-color: #2196f3;
+}
+
+.zone-card.head {
+    border-left-color: #4caf50;
+}
+
+.zone-header {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    margin-bottom: var(--spacing-md);
+}
+
+.zone-number {
+    background: var(--accent);
+    color: white;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: var(--font-size-sm);
+}
+
+.zone-icon {
+    font-size: var(--font-size-xl);
+}
+
+.zone-subtitle {
+    color: var(--text-secondary);
+    font-style: italic;
+    font-size: var(--font-size-sm);
+}
+
+.zone-example {
+    background: var(--bg-secondary);
+    padding: var(--spacing-sm);
+    border-radius: 4px;
+    margin-top: var(--spacing-sm);
+    font-size: var(--font-size-sm);
+    border-left: 3px solid var(--accent);
+}
+
+.zone-arrow {
+    text-align: center;
+    font-size: var(--font-size-2xl);
+    color: var(--accent);
+    font-weight: bold;
+}
+
+/* Callout */
+.callout {
+    background: linear-gradient(135deg, #e8f5e8 0%, #fff3e0 100%);
+    border: 1px solid #c8e6c9;
+    border-radius: 8px;
+    padding: var(--spacing-lg);
+    margin: var(--spacing-lg) 0;
+}
+
+/* Commit Structure */
+.commit-anatomy {
+    background: var(--bg-tertiary);
+    border-radius: 8px;
+    padding: var(--spacing-lg);
+    margin: var(--spacing-lg) 0;
+}
+
+.commit-structure {
+    display: grid;
+    gap: var(--spacing-md);
+    margin-top: var(--spacing-md);
+}
+
+.commit-element {
+    display: flex;
+    gap: var(--spacing-md);
+    background: white;
+    padding: var(--spacing-md);
+    border-radius: 8px;
+    align-items: flex-start;
+}
+
+.element-icon {
+    font-size: var(--font-size-xl);
+    flex-shrink: 0;
+}
+
+.element-content h5 {
+    margin: 0 0 var(--spacing-sm) 0;
+    color: var(--primary);
+}
+
+.element-example {
+    background: var(--bg-secondary);
+    padding: var(--spacing-sm);
+    border-radius: 4px;
+    margin-top: var(--spacing-sm);
+    font-family: var(--font-family-mono);
+    font-size: var(--font-size-sm);
+}
+
+/* Timeline */
+.commit-timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    margin: var(--spacing-lg) 0;
+}
+
+.timeline-commit {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+}
+
+.commit-dot {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: var(--text-muted);
+    flex-shrink: 0;
+}
+
+.commit-dot.first {
+    background: #4caf50;
+}
+
+.commit-dot.current {
+    background: var(--accent);
+    width: 20px;
+    height: 20px;
+}
+
+.timeline-line {
+    width: 2px;
+    height: 40px;
+    background: var(--border-color);
+    margin-left: 7px;
+}
+
+.commit-info strong {
+    color: var(--primary);
+    display: block;
+}
+
+.commit-info span {
+    color: var(--text-secondary);
+    font-size: var(--font-size-sm);
+}
+
+/* Benefits Grid */
+.benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--spacing-md);
+    margin: var(--spacing-md) 0;
+}
+
+.benefit-item {
+    text-align: center;
+    padding: var(--spacing-md);
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.benefit-icon {
+    font-size: var(--font-size-2xl);
+    display: block;
+    margin-bottom: var(--spacing-sm);
+}
+
+/* Branch Diagram */
+.branch-diagram {
+    background: var(--primary-dark);
+    color: white;
+    padding: var(--spacing-lg);
+    border-radius: 8px;
+    margin: var(--spacing-md) 0;
+    overflow-x: auto;
+}
+
+.branch-line {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+    margin: var(--spacing-md) 0;
+}
+
+.branch-label {
+    font-weight: bold;
+    min-width: 60px;
+    font-family: var(--font-family-mono);
+}
+
+.branch-commits {
+    display: flex;
+    gap: var(--spacing-sm);
+    align-items: center;
+}
+
+.branch-commit {
+    width: 30px;
+    height: 30px;
+    background: var(--accent);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: var(--font-size-sm);
+}
+
+.branch-commit.merge {
+    background: #4caf50;
+}
+
+.branch-connector {
+    width: 2px;
+    height: 30px;
+    background: var(--accent);
+    margin-left: 80px;
+}
+
+.diagram-explanation {
+    font-size: var(--font-size-sm);
+    color: var(--text-secondary);
+    text-align: center;
+    margin-top: var(--spacing-sm);
+}
+
+/* Characteristics Grid */
+.characteristics-grid {
+    margin: var(--spacing-lg) 0;
+}
+
+.characteristics-grid h4 {
+    margin-bottom: var(--spacing-md);
+}
+
+.characteristic-card {
+    display: flex;
+    gap: var(--spacing-md);
+    background: white;
+    padding: var(--spacing-md);
+    border-radius: 8px;
+    margin: var(--spacing-sm) 0;
+    align-items: flex-start;
+}
+
+.char-icon {
+    font-size: var(--font-size-xl);
+    flex-shrink: 0;
+}
+
+.char-content h5 {
+    margin: 0 0 var(--spacing-sm) 0;
+    color: var(--primary);
+}
+
+.char-example {
+    background: var(--bg-secondary);
+    padding: var(--spacing-sm);
+    border-radius: 4px;
+    margin-top: var(--spacing-sm);
+    font-family: var(--font-family-mono);
+    font-size: var(--font-size-sm);
+}
+
+/* Advantages Section */
+.advantage-list {
+    display: grid;
+    gap: var(--spacing-lg);
+    margin: var(--spacing-lg) 0;
+}
+
+.advantage-item {
+    display: flex;
+    gap: var(--spacing-md);
+    background: white;
+    padding: var(--spacing-lg);
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.adv-icon {
+    font-size: var(--font-size-2xl);
+    flex-shrink: 0;
+}
+
+.adv-content h5 {
+    margin: 0 0 var(--spacing-sm) 0;
+    color: var(--primary);
+}
+
+.adv-content ul {
+    margin: var(--spacing-sm) 0 0 0;
+    padding-left: var(--spacing-lg);
+}
+
+/* Purpose Grid */
+.purpose-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--spacing-lg);
+    margin: var(--spacing-lg) 0;
+}
+
+.purpose-card {
+    background: white;
+    border-radius: 8px;
+    padding: var(--spacing-lg);
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    border-left: 4px solid transparent;
+}
+
+.purpose-card.experiment {
+    border-left-color: #9c27b0;
+}
+
+.purpose-card.bugfix {
+    border-left-color: #f44336;
+}
+
+.purpose-card.feature {
+    border-left-color: #ff9800;
+}
+
+.purpose-icon {
+    font-size: var(--font-size-2xl);
+    margin-bottom: var(--spacing-sm);
+}
+
+.purpose-examples {
+    background: var(--bg-secondary);
+    padding: var(--spacing-sm);
+    border-radius: 4px;
+    margin-top: var(--spacing-sm);
+}
+
+.purpose-examples ul {
+    margin: var(--spacing-sm) 0 0 0;
+    padding-left: var(--spacing-lg);
+}
+
+.purpose-examples code {
+    font-family: var(--font-family-mono);
+    font-size: var(--font-size-sm);
+}
+
+/* Merge Process */
+.merge-steps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--spacing-lg);
+    margin: var(--spacing-lg) 0;
+}
+
+.merge-step {
+    background: white;
+    border-radius: 8px;
+    padding: var(--spacing-lg);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    position: relative;
+}
+
+.step-number {
+    position: absolute;
+    top: -10px;
+    left: 20px;
+    background: var(--accent);
+    color: white;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+}
+
+.step-content {
+    margin-top: var(--spacing-sm);
+}
+
+.step-content h5 {
+    margin: 0 0 var(--spacing-sm) 0;
+    color: var(--primary);
+}
+
+.step-content code {
+    display: block;
+    background: var(--primary-dark);
+    color: white;
+    padding: var(--spacing-sm);
+    border-radius: 4px;
+    margin-top: var(--spacing-sm);
+    font-family: var(--font-family-mono);
+    font-size: var(--font-size-sm);
+}
+
+/* Fusion Benefits */
+.benefits-list {
+    display: grid;
+    gap: var(--spacing-md);
+    margin: var(--spacing-lg) 0;
+}
+
+.benefit {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--spacing-sm);
+    background: white;
+    padding: var(--spacing-md);
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.benefit-icon {
+    font-size: var(--font-size-lg);
+    flex-shrink: 0;
+}
+
+/* Benefits Box */
+.benefits-box {
+    background: var(--bg-tertiary);
+    border-radius: 8px;
+    padding: var(--spacing-lg);
+    margin: var(--spacing-lg) 0;
+}
+
+/* Final Message */
+.final-message {
+    background: linear-gradient(135deg, #e8f5e8 0%, #f3e5f5 100%);
+    border: 2px solid #4caf50;
+    border-radius: 12px;
+    padding: var(--spacing-2xl);
+    margin: var(--spacing-2xl) 0;
+    text-align: center;
+}
+
+.final-message h3 {
+    color: var(--primary);
+    margin-bottom: var(--spacing-lg);
+}
+
+.final-message ul {
+    text-align: left;
+    max-width: 600px;
+    margin: var(--spacing-lg) auto;
+}
+
+.final-message ul li {
+    margin: var(--spacing-sm) 0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .zones-container {
+        gap: var(--spacing-sm);
+    }
+    
+    .zone-card {
+        padding: var(--spacing-md);
+    }
+    
+    .branch-diagram {
+        font-size: var(--font-size-sm);
+    }
+    
+    .purpose-grid,
+    .merge-steps,
+    .comparison-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .workflow-steps {
+        flex-direction: column;
+    }
+    
+    .workflow-arrow {
+        transform: rotate(90deg);
+    }
+    
+    .feature-item,
+    .advantage-item {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .feature-icon,
+    .adv-icon {
+        align-self: center;
+    }
+}
+</style>

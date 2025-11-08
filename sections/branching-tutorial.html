@@ -1,17 +1,971 @@
 <section id="branching-tutorial" class="doc-section">
-    <h2>Branches et Fusion</h2>
-    
-    <p class="lead">Section dédiée à l'apprentissage des branches Git et des stratégies de fusion.</p>
+    <h1 class="page-title">🌿 Git: Branches et Fusion</h1>
+    <p class="page-subtitle">Maîtrisez les branches Git et les stratégies de fusion pour un développement collaboratif efficace</p>
     
     <div class="alert alert-success">
-        <div class="alert-icon">🌿</div>
+        <div class="alert-icon">🎯</div>
         <div class="alert-content">
-            <strong>Prêt pour contribution</strong>
-            <p>Cette section peut être développée pour expliquer les branches, merges, et workflows.</p>
+            <strong>Objectifs de cette section</strong>
+            <ul style="margin: 0.5rem 0 0 0; padding-left: 1.5rem;">
+                <li>Comprendre le concept des branches Git</li>
+                <li>Apprendre à créer, naviguer et gérer les branches</li>
+                <li>Maîtriser les différentes stratégies de fusion</li>
+                <li>Résoudre les conflits de fusion</li>
+                <li>Adopter les meilleures pratiques</li>
+            </ul>
         </div>
     </div>
-    
-    <!-- TODO: Explain Git branching concept -->
-    <!-- TODO: Show branch creation and switching -->
-    <!-- TODO: Cover merge strategies and conflict resolution -->
+
+    <!-- Section 1: Introduction to Branches -->
+    <section class="branches-intro-section">
+        <h2 id="introduction-branches">🌳 Introduction aux Branches</h2>
+        <p class="lead">Une branche dans Git est une ligne de développement indépendante qui permet de travailler sur des fonctionnalités sans affecter le code principal.</p>
+
+        <div class="concept-explanation">
+            <div class="explanation-card">
+                <div class="explanation-icon">🌿</div>
+                <div class="explanation-content">
+                    <h3>Qu'est-ce qu'une branche ?</h3>
+                    <ul>
+                        <li>Une branche Git est une <strong>ligne de développement indépendante</strong></li>
+                        <li>Elle permet aux développeurs de <strong>travailler sur des fonctionnalités ou des corrections</strong> sans affecter le code principal</li>
+                        <li>La branche par défaut est généralement appelée <strong>'main' ou 'master'</strong></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Branch Commands -->
+        <div class="commands-section">
+            <h3>🔧 Commandes essentielles pour les branches</h3>
+            <div class="command-grid">
+                <div class="command-card">
+                    <div class="command-title">Lister toutes les branches</div>
+                    <code class="command-example" onclick="copyCommand(this)">git branch</code>
+                    <div class="command-explanation">Affiche toutes les branches du dépôt local</div>
+                </div>
+
+                <div class="command-card">
+                    <div class="command-title">Créer une nouvelle branche</div>
+                    <code class="command-example" onclick="copyCommand(this)">git branch &lt;nom-branche&gt;</code>
+                    <div class="command-explanation">Crée une nouvelle branche sans basculer dessus</div>
+                </div>
+
+                <div class="command-card">
+                    <div class="command-title">Basculer vers une branche</div>
+                    <code class="command-example" onclick="copyCommand(this)">git checkout &lt;nom-branche&gt;</code>
+                    <div class="command-explanation">Change vers la branche spécifiée</div>
+                </div>
+
+                <div class="command-card">
+                    <div class="command-title">Basculer (commande moderne)</div>
+                    <code class="command-example" onclick="copyCommand(this)">git switch &lt;nom-branche&gt;</code>
+                    <div class="command-explanation">Alternative moderne pour changer de branche</div>
+                </div>
+
+                <div class="command-card highlight">
+                    <div class="command-title">Créer et basculer en une seule fois</div>
+                    <code class="command-example" onclick="copyCommand(this)">git checkout -b &lt;nom-branche&gt;</code>
+                    <div class="command-explanation">Crée une nouvelle branche et bascule directement dessus</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Practical Example -->
+        <div class="example-section">
+            <h3>💡 Exemple pratique</h3>
+            <div class="example-card">
+                <div class="example-header">
+                    <span class="example-icon">🚀</span>
+                    <h4>Créer une branche pour une nouvelle fonctionnalité</h4>
+                </div>
+                <div class="example-steps">
+                    <div class="step">
+                        <div class="step-number">1</div>
+                        <div class="step-content">
+                            <h5>Créer et basculer vers une nouvelle branche</h5>
+                            <code class="command-example" onclick="copyCommand(this)">git checkout -b feature/login-page</code>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">2</div>
+                        <div class="step-content">
+                            <h5>Vérifier sur quelle branche vous êtes</h5>
+                            <code class="command-example" onclick="copyCommand(this)">git branch</code>
+                            <div class="expected-output">
+                                <strong>Résultat attendu :</strong>
+                                <code>* feature/login-page<br>&nbsp;&nbsp;main</code>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 2: Understanding Merging -->
+    <section class="merging-section">
+        <h2 id="fusion-merging">🔄 Comprendre la Fusion (Merging)</h2>
+        <p class="lead">La fusion combine les modifications d'une branche dans une autre, généralement pour intégrer une fonctionnalité dans la branche principale.</p>
+
+        <div class="merge-explanation">
+            <div class="explanation-card">
+                <div class="explanation-icon">🔀</div>
+                <div class="explanation-content">
+                    <h3>Le processus de fusion</h3>
+                    <ul>
+                        <li>La fusion <strong>combine les changements</strong> d'une branche dans une autre</li>
+                        <li>Généralement, on fusionne une branche de fonctionnalité dans <strong>'main'</strong> après développement</li>
+                        <li>Git tente automatiquement de fusionner, mais des <strong>conflits peuvent survenir</strong></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Merge Commands -->
+        <div class="commands-section">
+            <h3>🔧 Commandes de fusion</h3>
+            <div class="command-grid">
+                <div class="command-card highlight">
+                    <div class="command-title">Fusionner une branche</div>
+                    <code class="command-example" onclick="copyCommand(this)">git merge &lt;nom-branche&gt;</code>
+                    <div class="command-explanation">Fusionne la branche spécifiée dans la branche courante</div>
+                </div>
+
+                <div class="command-card">
+                    <div class="command-title">Visualiser l'historique graphique</div>
+                    <code class="command-example" onclick="copyCommand(this)">git log --graph --oneline --all</code>
+                    <div class="command-explanation">Affiche un graphique compact des branches et fusions</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Types of Merges -->
+        <div class="merge-types-section">
+            <h3>📊 Types de fusion</h3>
+            <div class="merge-types-grid">
+                <div class="merge-type-card">
+                    <div class="merge-type-header">
+                        <span class="merge-type-icon">⚡</span>
+                        <h4>Fast-forward merge</h4>
+                    </div>
+                    <div class="merge-type-content">
+                        <p><strong>Quand :</strong> La branche cible n'a pas divergé de la source</p>
+                        <p><strong>Action :</strong> Le pointeur se déplace simplement vers l'avant</p>
+                        <div class="merge-visual">
+                            <div class="merge-diagram">
+                                <code>A---B---C (main)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;D---E (feature)</code>
+                            </div>
+                            <div class="merge-arrow">→</div>
+                            <div class="merge-result">
+                                <code>A---B---C---D---E (main)</code>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="merge-type-card">
+                    <div class="merge-type-header">
+                        <span class="merge-type-icon">🔀</span>
+                        <h4>Three-way merge</h4>
+                    </div>
+                    <div class="merge-type-content">
+                        <p><strong>Quand :</strong> Les branches ont divergé</p>
+                        <p><strong>Action :</strong> Git combine les changements des deux branches dans un nouveau commit</p>
+                        <div class="merge-visual">
+                            <div class="merge-diagram">
+                                <code>A---B---C---F (main)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\&nbsp;&nbsp;&nbsp;/<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;D---E (feature)</code>
+                            </div>
+                            <div class="merge-arrow">→</div>
+                            <div class="merge-result">
+                                <code>A---B---C---F---M (main)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;/<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;D---E----+</code>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 3: Handling Merge Conflicts -->
+    <section class="conflicts-section">
+        <h2 id="conflits-fusion">⚠️ Gérer les Conflits de Fusion</h2>
+        <p class="lead">Les conflits surviennent quand deux branches modifient la même partie d'un fichier différemment. Apprenez à les résoudre efficacement.</p>
+
+        <div class="conflict-explanation">
+            <div class="explanation-card">
+                <div class="explanation-icon">⚡</div>
+                <div class="explanation-content">
+                    <h3>Qu'est-ce qu'un conflit ?</h3>
+                    <ul>
+                        <li>Les conflits surviennent quand <strong>deux branches modifient la même partie d'un fichier</strong> différemment</li>
+                        <li>Git marque les <strong>zones de conflit à l'intérieur du fichier</strong>, et vous devez les éditer manuellement</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Conflict Resolution Commands -->
+        <div class="commands-section">
+            <h3>🔧 Commandes de résolution de conflits</h3>
+            <div class="command-grid">
+                <div class="command-card">
+                    <div class="command-title">Vérifier les fichiers en conflit</div>
+                    <code class="command-example" onclick="copyCommand(this)">git status</code>
+                    <div class="command-explanation">Affiche quels fichiers sont en conflit</div>
+                </div>
+
+                <div class="command-card">
+                    <div class="command-title">Marquer un conflit comme résolu</div>
+                    <code class="command-example" onclick="copyCommand(this)">git add &lt;fichier&gt;</code>
+                    <div class="command-explanation">Ajoute le fichier après résolution manuelle</div>
+                </div>
+
+                <div class="command-card danger">
+                    <div class="command-title">Annuler la fusion</div>
+                    <code class="command-example" onclick="copyCommand(this)">git merge --abort</code>
+                    <div class="command-explanation">Annule le processus de fusion et revient à l'état précédent</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Conflict Resolution Process -->
+        <div class="resolution-process">
+            <h3>🛠️ Processus de résolution</h3>
+            <div class="process-steps">
+                <div class="process-step">
+                    <div class="process-number">1</div>
+                    <div class="process-content">
+                        <h4>Identifier le conflit</h4>
+                        <p>Git affiche un message indiquant les fichiers en conflit</p>
+                        <div class="conflict-example">
+                            <strong>Exemple de conflit dans un fichier :</strong>
+                            <pre><code><<<<<<< HEAD
+console.log("Version de la branche main");
+=======
+console.log("Version de la branche feature");
+>>>>>>> feature/login-page</code></pre>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="process-step">
+                    <div class="process-number">2</div>
+                    <div class="process-content">
+                        <h4>Éditer le fichier</h4>
+                        <p>Supprimez les marqueurs de conflit et gardez le code souhaité</p>
+                        <div class="resolution-example">
+                            <strong>Après résolution :</strong>
+                            <pre><code>console.log("Version fusionnée et corrigée");</code></pre>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="process-step">
+                    <div class="process-number">3</div>
+                    <div class="process-content">
+                        <h4>Finaliser la fusion</h4>
+                        <div class="command-sequence">
+                            <code class="command-example" onclick="copyCommand(this)">git add .</code>
+                            <code class="command-example" onclick="copyCommand(this)">git commit</code>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 4: Best Practices -->
+    <section class="best-practices-section">
+        <h2 id="bonnes-pratiques">✨ Meilleures Pratiques</h2>
+        <p class="lead">Adoptez ces pratiques pour une gestion efficace des branches et des fusions.</p>
+
+        <div class="practices-grid">
+            <div class="practice-card">
+                <div class="practice-icon">📝</div>
+                <div class="practice-content">
+                    <h3>Noms de branches descriptifs</h3>
+                    <p>Utilisez des noms clairs et descriptifs</p>
+                    <div class="practice-examples">
+                        <div class="good-example">
+                            <span class="example-label good">✅ Bon</span>
+                            <code>feature/login-page</code><br>
+                            <code>fix/typo-correction</code><br>
+                            <code>hotfix/security-patch</code>
+                        </div>
+                        <div class="bad-example">
+                            <span class="example-label bad">❌ Mauvais</span>
+                            <code>branch1</code><br>
+                            <code>test</code><br>
+                            <code>temp</code>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="practice-card">
+                <div class="practice-icon">🔄</div>
+                <div class="practice-content">
+                    <h3>Toujours synchroniser</h3>
+                    <p>Récupérez les dernières modifications avant de fusionner</p>
+                    <div class="practice-steps">
+                        <code class="command-example" onclick="copyCommand(this)">git checkout main</code>
+                        <code class="command-example" onclick="copyCommand(this)">git pull origin main</code>
+                        <code class="command-example" onclick="copyCommand(this)">git merge feature/nom-branche</code>
+                    </div>
+                </div>
+            </div>
+
+            <div class="practice-card">
+                <div class="practice-icon">🧪</div>
+                <div class="practice-content">
+                    <h3>Tester après fusion</h3>
+                    <p>Toujours tester votre code après une fusion pour s'assurer que tout fonctionne</p>
+                    <ul>
+                        <li>Exécuter les tests automatisés</li>
+                        <li>Vérifier manuellement les fonctionnalités</li>
+                        <li>Tester les interactions entre branches</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="practice-card">
+                <div class="practice-icon">🗑️</div>
+                <div class="practice-content">
+                    <h3>Nettoyer les branches</h3>
+                    <p>Supprimez les anciennes branches après fusion pour garder le dépôt propre</p>
+                    <div class="practice-steps">
+                        <code class="command-example" onclick="copyCommand(this)">git branch -d nom-branche</code>
+                        <div class="command-explanation">Supprime une branche locale fusionnée</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Practical Exercise -->
+    <section class="exercise-section">
+        <h2 id="exercice-pratique">🏃‍♂️ Exercice Pratique</h2>
+        <p class="lead">Mettons en pratique la gestion des branches et la fusion !</p>
+
+        <div class="exercise-card">
+            <div class="exercise-header">
+                <span class="exercise-icon">🎯</span>
+                <h3>Objectif de l'exercice</h3>
+            </div>
+            <div class="exercise-content">
+                <p>Créer une branche, faire des modifications, et la fusionner dans la branche principale.</p>
+            </div>
+        </div>
+
+        <div class="exercise-steps">
+            <h3>📝 Étapes à suivre</h3>
+            <div class="activity-list">
+                <div class="activity-item">
+                    <div class="activity-number">1</div>
+                    <div class="activity-content">
+                        <h4>Créer et basculer vers une nouvelle branche</h4>
+                        <code class="command-example" onclick="copyCommand(this)">git checkout -b feature/ma-nouvelle-fonctionnalite</code>
+                    </div>
+                </div>
+
+                <div class="activity-item">
+                    <div class="activity-number">2</div>
+                    <div class="activity-content">
+                        <h4>Faire des modifications et les commiter</h4>
+                        <div class="command-sequence">
+                            <code class="command-example" onclick="copyCommand(this)">echo "Nouvelle fonctionnalité" > feature.txt</code>
+                            <code class="command-example" onclick="copyCommand(this)">git add feature.txt</code>
+                            <code class="command-example" onclick="copyCommand(this)">git commit -m "Ajout de ma nouvelle fonctionnalité"</code>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="activity-item">
+                    <div class="activity-number">3</div>
+                    <div class="activity-content">
+                        <h4>Retourner à la branche principale</h4>
+                        <code class="command-example" onclick="copyCommand(this)">git checkout main</code>
+                    </div>
+                </div>
+
+                <div class="activity-item">
+                    <div class="activity-number">4</div>
+                    <div class="activity-content">
+                        <h4>Fusionner la branche feature</h4>
+                        <code class="command-example" onclick="copyCommand(this)">git merge feature/ma-nouvelle-fonctionnalite</code>
+                    </div>
+                </div>
+
+                <div class="activity-item">
+                    <div class="activity-number">5</div>
+                    <div class="activity-content">
+                        <h4>Supprimer la branche fusionnée</h4>
+                        <code class="command-example" onclick="copyCommand(this)">git branch -d feature/ma-nouvelle-fonctionnalite</code>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="success-message">
+            <div class="success-icon">🎉</div>
+            <div class="success-content">
+                <h3>Félicitations !</h3>
+                <p>Vous avez maintenant maîtrisé les bases des <strong>branches et de la fusion Git</strong> !</p>
+                <p>Vous pouvez maintenant travailler efficacement sur plusieurs fonctionnalités en parallèle.</p>
+            </div>
+        </div>
+    </section>
+
+    <div class="final-message">
+        <h3>🎯 Récapitulatif des Branches et Fusion</h3>
+        <p>Vous avez maintenant une compréhension complète de :</p>
+        <ul>
+            <li>✅ <strong>Concept des branches</strong> - Lignes de développement indépendantes</li>
+            <li>✅ <strong>Commandes essentielles</strong> - Création, navigation et gestion des branches</li>
+            <li>✅ <strong>Types de fusion</strong> - Fast-forward et three-way merge</li>
+            <li>✅ <strong>Résolution de conflits</strong> - Identifier et résoudre les conflits</li>
+            <li>✅ <strong>Meilleures pratiques</strong> - Conventions et workflow efficaces</li>
+        </ul>
+        <p><strong>Prochaine étape :</strong> Appliquer ces compétences dans des projets collaboratifs ! 🚀</p>
+    </div>
 </section>
+
+<style>
+/* Branches and Merging specific styles */
+.branches-intro-section,
+.merging-section,
+.conflicts-section,
+.best-practices-section,
+.exercise-section {
+    margin: var(--spacing-2xl) 0;
+    padding: var(--spacing-xl);
+    background: var(--bg-secondary);
+    border-radius: 12px;
+    border-left: 4px solid var(--accent);
+}
+
+/* Command Grid */
+.command-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: var(--spacing-lg);
+    margin: var(--spacing-lg) 0;
+}
+
+.command-card {
+    background: white;
+    border-radius: 8px;
+    padding: var(--spacing-lg);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    transition: transform 0.2s ease;
+}
+
+.command-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+.command-card.highlight {
+    border-left: 4px solid #4caf50;
+}
+
+.command-card.danger {
+    border-left: 4px solid #f44336;
+}
+
+.command-title {
+    font-weight: bold;
+    color: var(--primary);
+    margin-bottom: var(--spacing-md);
+}
+
+.command-example {
+    display: block;
+    background: var(--primary-dark);
+    color: white;
+    padding: var(--spacing-md);
+    border-radius: 4px;
+    font-family: var(--font-family-mono);
+    font-size: var(--font-size-sm);
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin: var(--spacing-sm) 0;
+}
+
+.command-example:hover {
+    background: var(--primary);
+}
+
+.command-explanation {
+    font-size: var(--font-size-sm);
+    color: var(--text-secondary);
+    margin-top: var(--spacing-sm);
+}
+
+/* Merge Types */
+.merge-types-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: var(--spacing-xl);
+    margin: var(--spacing-lg) 0;
+}
+
+.merge-type-card {
+    background: white;
+    border-radius: 12px;
+    padding: var(--spacing-xl);
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.merge-type-header {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-lg);
+}
+
+.merge-type-icon {
+    font-size: var(--font-size-xl);
+}
+
+.merge-type-header h4 {
+    margin: 0;
+    color: var(--primary);
+}
+
+.merge-visual {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+    margin-top: var(--spacing-md);
+    flex-wrap: wrap;
+}
+
+.merge-diagram,
+.merge-result {
+    background: var(--bg-tertiary);
+    padding: var(--spacing-md);
+    border-radius: 6px;
+    font-family: var(--font-family-mono);
+    font-size: var(--font-size-sm);
+    flex: 1;
+    min-width: 150px;
+}
+
+.merge-arrow {
+    font-size: var(--font-size-xl);
+    color: var(--accent);
+    font-weight: bold;
+}
+
+/* Conflict Resolution */
+.resolution-process {
+    margin: var(--spacing-lg) 0;
+}
+
+.process-steps {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xl);
+}
+
+.process-step {
+    background: white;
+    border-radius: 8px;
+    padding: var(--spacing-lg);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    position: relative;
+}
+
+.process-number {
+    position: absolute;
+    top: -10px;
+    left: 20px;
+    background: var(--accent);
+    color: white;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+}
+
+.process-content {
+    margin-top: var(--spacing-sm);
+}
+
+.process-content h4 {
+    margin: 0 0 var(--spacing-md) 0;
+    color: var(--primary);
+}
+
+.conflict-example,
+.resolution-example {
+    background: var(--bg-tertiary);
+    border-radius: 6px;
+    padding: var(--spacing-md);
+    margin: var(--spacing-sm) 0;
+}
+
+.conflict-example pre,
+.resolution-example pre {
+    margin: 0;
+    font-family: var(--font-family-mono);
+    font-size: var(--font-size-sm);
+}
+
+.command-sequence {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+    margin: var(--spacing-sm) 0;
+}
+
+/* Best Practices */
+.practices-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--spacing-xl);
+    margin: var(--spacing-lg) 0;
+}
+
+.practice-card {
+    background: white;
+    border-radius: 12px;
+    padding: var(--spacing-xl);
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+.practice-icon {
+    font-size: var(--font-size-3xl);
+    margin-bottom: var(--spacing-md);
+}
+
+.practice-content h3 {
+    color: var(--primary);
+    margin-bottom: var(--spacing-md);
+}
+
+.practice-examples {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-md);
+    margin: var(--spacing-md) 0;
+}
+
+.good-example,
+.bad-example {
+    padding: var(--spacing-md);
+    border-radius: 6px;
+    text-align: left;
+}
+
+.good-example {
+    background: linear-gradient(135deg, #e8f5e8 0%, #f0f8ff 100%);
+    border: 1px solid #c8e6c9;
+}
+
+.bad-example {
+    background: linear-gradient(135deg, #ffebee 0%, #fce4ec 100%);
+    border: 1px solid #ffcdd2;
+}
+
+.example-label {
+    font-weight: bold;
+    font-size: var(--font-size-sm);
+    margin-bottom: var(--spacing-xs);
+    display: block;
+}
+
+.example-label.good {
+    color: #2e7d32;
+}
+
+.example-label.bad {
+    color: #c62828;
+}
+
+.practice-steps {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+    margin: var(--spacing-sm) 0;
+}
+
+.practice-steps ul {
+    text-align: left;
+    margin: var(--spacing-sm) 0;
+}
+
+/* Example Section */
+.example-section {
+    margin: var(--spacing-lg) 0;
+}
+
+.example-card {
+    background: white;
+    border-radius: 8px;
+    padding: var(--spacing-lg);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.example-header {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-lg);
+}
+
+.example-icon {
+    font-size: var(--font-size-xl);
+}
+
+.example-header h4 {
+    margin: 0;
+    color: var(--primary);
+}
+
+.example-steps {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-lg);
+}
+
+.step {
+    display: flex;
+    gap: var(--spacing-md);
+    align-items: flex-start;
+}
+
+.step-number {
+    background: var(--accent);
+    color: white;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: var(--font-size-sm);
+    flex-shrink: 0;
+}
+
+.step-content {
+    flex: 1;
+}
+
+.step-content h5 {
+    margin: 0 0 var(--spacing-sm) 0;
+    color: var(--primary);
+}
+
+.expected-output {
+    background: var(--bg-secondary);
+    padding: var(--spacing-sm);
+    border-radius: 4px;
+    margin-top: var(--spacing-sm);
+    border-left: 3px solid #4caf50;
+}
+
+/* Exercise Section */
+.exercise-card {
+    background: white;
+    border-radius: 8px;
+    padding: var(--spacing-lg);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    margin: var(--spacing-lg) 0;
+}
+
+.exercise-header {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-md);
+}
+
+.exercise-icon {
+    font-size: var(--font-size-xl);
+}
+
+.exercise-header h3 {
+    margin: 0;
+    color: var(--primary);
+}
+
+.activity-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xl);
+    margin: var(--spacing-lg) 0;
+}
+
+.activity-item {
+    background: white;
+    border-radius: 8px;
+    padding: var(--spacing-lg);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    position: relative;
+}
+
+.activity-number {
+    position: absolute;
+    top: -10px;
+    left: 20px;
+    background: var(--accent);
+    color: white;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+}
+
+.activity-content {
+    margin-top: var(--spacing-sm);
+}
+
+.activity-content h4 {
+    margin: 0 0 var(--spacing-md) 0;
+    color: var(--primary);
+}
+
+/* Success Message */
+.success-message {
+    display: flex;
+    gap: var(--spacing-md);
+    background: linear-gradient(135deg, #e8f5e8 0%, #f0f8ff 100%);
+    border: 2px solid #4caf50;
+    border-radius: 8px;
+    padding: var(--spacing-xl);
+    margin: var(--spacing-xl) 0;
+}
+
+.success-icon {
+    font-size: var(--font-size-2xl);
+    flex-shrink: 0;
+}
+
+.success-content h3 {
+    margin: 0 0 var(--spacing-sm) 0;
+    color: var(--primary);
+}
+
+.success-content p {
+    margin: var(--spacing-sm) 0;
+}
+
+/* Final Message */
+.final-message {
+    background: linear-gradient(135deg, #e8f5e8 0%, #f3e5f5 100%);
+    border: 2px solid #4caf50;
+    border-radius: 12px;
+    padding: var(--spacing-2xl);
+    margin: var(--spacing-2xl) 0;
+    text-align: center;
+    color: var(--primary);
+}
+
+.final-message h3 {
+    color: var(--primary);
+    margin-bottom: var(--spacing-lg);
+}
+
+.final-message ul {
+    text-align: left;
+    max-width: 600px;
+    margin: var(--spacing-lg) auto;
+}
+
+.final-message ul li {
+    margin: var(--spacing-sm) 0;
+}
+
+.final-message p {
+    color : var(--primary);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .command-grid,
+    .merge-types-grid,
+    .practices-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .merge-visual {
+        flex-direction: column;
+    }
+    
+    .merge-arrow {
+        transform: rotate(90deg);
+    }
+    
+    .practice-examples {
+        grid-template-columns: 1fr;
+    }
+    
+    .step {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+</style>
+
+<script>
+function copyCommand(element) {
+    const text = element.textContent.replace(/</g, '<').replace(/>/g, '>');
+    
+    // Try modern clipboard API first
+    if (navigator.clipboard && window.isSecureContext) {
+        navigator.clipboard.writeText(text).then(() => {
+            showCopyFeedback(element);
+        }).catch(err => {
+            // Fallback if clipboard API fails
+            fallbackCopyTextToClipboard(text, element);
+        });
+    } else {
+        // Fallback for older browsers or non-secure contexts
+        fallbackCopyTextToClipboard(text, element);
+    }
+}
+
+function fallbackCopyTextToClipboard(text, element) {
+    const textArea = document.createElement('textarea');
+    textArea.value = text;
+    textArea.style.position = 'fixed';
+    textArea.style.left = '-999999px';
+    textArea.style.top = '-999999px';
+    document.body.appendChild(textArea);
+    textArea.focus();
+    textArea.select();
+    
+    try {
+        document.execCommand('copy');
+        showCopyFeedback(element);
+    } catch (err) {
+        console.error('Fallback: Oops, unable to copy', err);
+    }
+    
+    document.body.removeChild(textArea);
+}
+
+function showCopyFeedback(element) {
+    const originalBg = element.style.backgroundColor;
+    const originalColor = element.style.color;
+    
+    element.style.backgroundColor = '#4caf50';
+    element.style.color = 'white';
+    
+    setTimeout(() => {
+        element.style.backgroundColor = originalBg;
+        element.style.color = originalColor;
+    }, 300);
+}
+</script>

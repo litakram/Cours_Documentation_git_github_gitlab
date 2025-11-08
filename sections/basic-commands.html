@@ -12,7 +12,7 @@
     </div>
 
     <!-- Configuration de Git -->
-    <h3>🔧 Configuration de Git</h3>
+    <h3 id="configuration-git">🔧 Configuration de Git</h3>
     <p>Avant de commencer à utiliser Git, vous devez configurer votre identité. Cette information sera attachée à tous vos commits.</p>
     
     <div class="card-grid">
@@ -46,7 +46,7 @@
     </div>
 
     <!-- Initialisation d'un Dépôt -->
-    <h3>🏗️ Initialisation d'un Dépôt</h3>
+    <h3 id="initialisation-depot">🏗️ Initialisation d'un Dépôt</h3>
     <p>Créez un nouveau dépôt Git dans votre projet existant ou démarrez un projet depuis zéro.</p>
     
     <div class="feature-list">
@@ -66,7 +66,7 @@
     </div>
 
     <!-- Vérification de l'état et ajout de fichiers -->
-    <h3>📊 Gestion des Fichiers</h3>
+    <h3 id="gestion-fichiers">📊 Gestion des Fichiers</h3>
     <p>Surveillez l'état de vos fichiers et préparez-les pour être sauvegardés.</p>
     
     <div class="card-grid">
@@ -126,7 +126,7 @@
     </div>
 
     <!-- Commit des changements -->
-    <h3>💾 Sauvegarder vos Changements (Commit)</h3>
+    <h3 id="sauvegarder-changements">💾 Sauvegarder vos Changements (Commit)</h3>
     <p>Une fois vos fichiers ajoutés, créez un "instantané" permanent de votre travail.</p>
     
     <div class="alert alert-success">
@@ -185,7 +185,7 @@
     </div>
 
     <!-- Comparaison et Historique -->
-    <h3>🔍 Analyser l'Historique</h3>
+    <h3 id="analyser-historique">🔍 Analyser l'Historique</h3>
     <p>Explorez l'évolution de votre projet et comparez les différentes versions.</p>
     
     <div class="card-grid">
@@ -233,7 +233,7 @@
     </div>
 
     <!-- Annulation et Restauration -->
-    <h3>⏪ Annuler et Restaurer</h3>
+    <h3 id="annuler-restaurer">⏪ Annuler et Restaurer</h3>
     <p>Même les meilleurs développeurs font des erreurs. Git vous permet de revenir en arrière facilement !</p>
 
     <div class="alert alert-warning">
@@ -320,7 +320,7 @@
     </div>
 
     <!-- Commandes Système Utiles -->
-    <h3>🛠️ Commandes Système Utiles</h3>
+    <h3 id="commandes-systeme">🛠️ Commandes Système Utiles</h3>
     <p>Quelques commandes système qui vous aideront dans votre workflow Git quotidien.</p>
     
     <div class="card-grid">
@@ -383,9 +383,9 @@
                 <code class="command-example" onclick="copyCommand(this)">touch .gitignore</code>
                 <div class="command-explanation">
                     Listez les fichiers que Git doit ignorer :<br>
-                    <code>node_modules/</code><br>
-                    <code>*.log</code><br>
-                    <code>.env</code>
+                    <code class="command-example">node_modules/</code><br>
+                    <code class="command-example">*.log</code><br>
+                    <code class="command-example">.env</code>
                 </div>
             </div>
             <div class="command-card">
@@ -475,6 +475,7 @@
     border-color: var(--accent);
     transform: translateY(-1px);
     box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    color: #ffffff;
 }
 
 .command-example:active {

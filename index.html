@@ -19,7 +19,7 @@
             </div>
         </div>
         <nav class="sidebar-nav">
-            <div class="nav-section collapsed">
+            <div class="nav-section">
                 <div class="nav-section-header" onclick="toggleNavSection(this)">
                     <span class="nav-section-icon">📚</span>
                     <span class="nav-section-title">Intérêt de la gestion de version & outils existants de g.v</span>
@@ -77,9 +77,48 @@
                     <span class="nav-section-toggle">▼</span>
                 </div>
                 <div class="nav-section-content">
-                    <a href="#Qu-est-ce-que-Git" class="nav-link">
-                        <span class="nav-icon">📲</span>
-                        <span>Qu'est ce que Git</span>
+                    <!-- Partie 1: Introduction et Environnement -->
+                    <a href="#introduction-environnement" class="nav-link sub-link">
+                        <span class="nav-icon">📚</span>
+                        <span>Introduction & Environnement</span>
+                    </a>
+                    <a href="#qu-est-ce-que-git-definition" class="nav-link sub-link">
+                        <span class="nav-icon">🤔</span>
+                        <span>Qu'est-ce que Git ?</span>
+                    </a>
+                    <a href="#depots-git" class="nav-link sub-link">
+                        <span class="nav-icon">📦</span>
+                        <span>Les Dépôts Git</span>
+                    </a>
+                    <!-- Partie 2: Flux de Travail Local -->
+                    <a href="#flux-travail-local" class="nav-link sub-link">
+                        <span class="nav-icon">⚙️</span>
+                        <span>Flux de Travail Local</span>
+                    </a>
+                    <a href="#trois-zones-travail" class="nav-link sub-link">
+                        <span class="nav-icon">🏗️</span>
+                        <span>Les Trois Zones</span>
+                    </a>
+                    <a href="#validation-commit" class="nav-link sub-link">
+                        <span class="nav-icon">✅</span>
+                        <span>La Validation (Commit)</span>
+                    </a>
+                    <!-- Partie 3: Gestion des Branches -->
+                    <a href="#gestion-branches" class="nav-link sub-link">
+                        <span class="nav-icon">🌿</span>
+                        <span>Gestion des Branches</span>
+                    </a>
+                    <a href="#concept-branche" class="nav-link sub-link">
+                        <span class="nav-icon">🌳</span>
+                        <span>Le Concept de Branche</span>
+                    </a>
+                    <a href="#branche-principale-fusions" class="nav-link sub-link">
+                        <span class="nav-icon">🔄</span>
+                        <span>Branche Principale & Fusions</span>
+                    </a>
+                    <a href="#recapitulatif-git" class="nav-link sub-link">
+                        <span class="nav-icon">🎯</span>
+                        <span>Récapitulatif</span>
                     </a>
                 </div>
             </div>
@@ -90,9 +129,29 @@
                     <span class="nav-section-toggle">▼</span>
                 </div>
                 <div class="nav-section-content">
-                    <a href="#git-installation" class="nav-link">
-                        <span class="nav-icon">💾</span>
-                        <span>Installation Git</span>
+                    <a href="#git-installation" class="nav-link sub-link">
+                        <span class="nav-icon">▶️</span>
+                        <span>introduction</span>
+                    </a>
+                    <a href="#etape-installation" class="nav-link sub-link">
+                        <span class="nav-icon">📦</span>
+                        <span>Étape 1: Installer Git</span>
+                    </a>
+                    <a href="#etape-configuration" class="nav-link sub-link">
+                        <span class="nav-icon">⚙️</span>
+                        <span>Étape 2: Configuration</span>
+                    </a>
+                    <a href="#etape-niveaux" class="nav-link sub-link">
+                        <span class="nav-icon">🏗️</span>
+                        <span>Étape 3: Niveaux Config</span>
+                    </a>
+                    <a href="#etape-verification" class="nav-link sub-link">
+                        <span class="nav-icon">🔍</span>
+                        <span>Étape 4: Vérification</span>
+                    </a>
+                    <a href="#etape-exercice" class="nav-link sub-link">
+                        <span class="nav-icon">🏃‍♂️</span>
+                        <span>Étape 5: Exercice</span>
                     </a>
                 </div>
             </div>
@@ -104,9 +163,37 @@
                     <span class="nav-section-toggle">▼</span>
                 </div>
                 <div class="nav-section-content">
-                    <a href="#basic-commands" class="nav-link">
-                        <span class="nav-icon">⌨️</span>
-                        <span>Commandes de Base</span>
+                    <a href="#basic-commands" class="nav-link sub-link">
+                        <span class="nav-icon">⌨</span>
+                        <span>Introduction</span>
+                    </a>
+                    <a href="#configuration-git" class="nav-link sub-link">
+                        <span class="nav-icon">🔧</span>
+                        <span>Configuration de Git</span>
+                    </a>
+                    <a href="#initialisation-depot" class="nav-link sub-link">
+                        <span class="nav-icon">🏗️</span>
+                        <span>Initialisation d'un Dépôt</span>
+                    </a>
+                    <a href="#gestion-fichiers" class="nav-link sub-link">
+                        <span class="nav-icon">📊</span>
+                        <span>Gestion des Fichiers</span>
+                    </a>
+                    <a href="#sauvegarder-changements" class="nav-link sub-link">
+                        <span class="nav-icon">💾</span>
+                        <span>Sauvegarder (Commit)</span>
+                    </a>
+                    <a href="#analyser-historique" class="nav-link sub-link">
+                        <span class="nav-icon">🔍</span>
+                        <span>Analyser l'Historique</span>
+                    </a>
+                    <a href="#annuler-restaurer" class="nav-link sub-link">
+                        <span class="nav-icon">⏪</span>
+                        <span>Annuler et Restaurer</span>
+                    </a>
+                    <a href="#commandes-systeme" class="nav-link sub-link">
+                        <span class="nav-icon">🛠️</span>
+                        <span>Commandes Système</span>
                     </a>
                 </div>
             </div>
@@ -118,9 +205,29 @@
                     <span class="nav-section-toggle">▼</span>
                 </div>
                 <div class="nav-section-content">
-                    <a href="#branching-tutorial" class="nav-link">
-                        <span class="nav-icon">🌿</span>
-                        <span>Branches & Fusion</span>
+                    <a href="#branching-tutorial" class="nav-link sub-link">
+                        <span class="nav-icon">🪵</span>
+                        <span>Introduction</span>
+                    </a>
+                    <a href="#introduction-branches" class="nav-link sub-link">
+                        <span class="nav-icon">🌳</span>
+                        <span>Les Branches</span>
+                    </a>
+                    <a href="#fusion-merging" class="nav-link sub-link">
+                        <span class="nav-icon">🔄</span>
+                        <span>Comprendre la Fusion</span>
+                    </a>
+                    <a href="#conflits-fusion" class="nav-link sub-link">
+                        <span class="nav-icon">⚠️</span>
+                        <span>Gérer les Conflits</span>
+                    </a>
+                    <a href="#bonnes-pratiques" class="nav-link sub-link">
+                        <span class="nav-icon">✨</span>
+                        <span>Meilleures Pratiques</span>
+                    </a>
+                    <a href="#exercice-pratique" class="nav-link sub-link">
+                        <span class="nav-icon">🏃‍♂️</span>
+                        <span>Exercice Pratique</span>
                     </a>
                 </div>
             </div>
@@ -357,12 +464,19 @@
 
             <!-- Local Section -->
             <section id="local" class="doc-section">
-                <h2>Gestion de Versions Locale</h2>
-                
-                <p>Avant l'ère d'Internet, les développeurs devaient travailler localement. Ils gardaient des snapshots de leurs fichiers sur leur propre ordinateur, créant une sorte d'historique primitif.</p>
+                <div class="section-with-image">
+                    <div class="section-content">
+                        <h2>Gestion de Versions Locale</h2>
+                        
+                        <p>Avant l'ère d'Internet, les développeurs devaient travailler localement. Ils gardaient des snapshots de leurs fichiers sur leur propre ordinateur, créant une sorte d'historique primitif.</p>
 
-                <h3>Comment Ça Fonctionne</h3>
-                <p>Toutes les versions du code sont stockées uniquement sur votre ordinateur personnel. Pas de serveur, pas de cloud, pas de réseau. Juste votre PC.</p>
+                        <h3>Comment Ça Fonctionne</h3>
+                        <p>Toutes les versions du code sont stockées uniquement sur votre ordinateur personnel. Pas de serveur, pas de cloud, pas de réseau. Juste votre PC.</p>
+                    </div>
+                    <div class="section-image">
+                        <img src="/images/local.png" alt="Schéma de gestion de versions locale" class="local-diagram">
+                    </div>
+                </div>
 
                 <h3>Avantages</h3>
                 <ul class="check-list">
@@ -389,15 +503,22 @@
 
             <!-- Centralized Section -->
             <section id="centralized" class="doc-section">
-                <h2>Gestion de Versions Centralisée</h2>
-                
-                <p>Dans les années 1990 et 2000, avec l'émergence de l'Internet, les équipes de développement ont réalisé qu'elles avaient besoin d'une solution partagée.</p>
+                <div class="section-with-image">
+                    <div class="section-content">
+                        <h2>Gestion de Versions Centralisée</h2>
+                        
+                        <p>Dans les années 1990 et 2000, avec l'émergence de l'Internet, les équipes de développement ont réalisé qu'elles avaient besoin d'une solution partagée.</p>
 
-                <h3>Comment Ça Fonctionne</h3>
-                <p>Un serveur central stocke l'historique complet du projet. Les développeurs extraient les fichiers depuis ce serveur, les modifient, et les renvoient. Toutes les versions résident au même endroit, sur une machine centrale.</p>
+                        <h3>Comment Ça Fonctionne</h3>
+                        <p>Un serveur central stocke l'historique complet du projet. Les développeurs extraient les fichiers depuis ce serveur, les modifient, et les renvoient. Toutes les versions résident au même endroit, sur une machine centrale.</p>
 
-                <div class="note">
-                    <strong>Exemples :</strong> CVS, SVN (Subversion), Microsoft TFS, Perforce
+                        <div class="note">
+                            <strong>Exemples :</strong> CVS, SVN (Subversion), Microsoft TFS, Perforce
+                        </div>
+                    </div>
+                    <div class="section-image">
+                        <img src="/images/centralise.png" alt="Schéma de gestion de versions centralisée" class="centralized-diagram">
+                    </div>
                 </div>
 
                 <h3>Avantages</h3>
@@ -427,20 +548,27 @@
 
             <!-- Distributed Section -->
             <section id="distributed" class="doc-section">
-                <h2>Gestion de Versions Distribuée : La Révolution Git</h2>
-                
-                <p class="lead">Au milieu des années 2000, <strong>Linus Torvalds</strong> (créateur du noyau Linux) s'est posé une question révolutionnaire : "Et si chaque développeur avait une copie complète de l'historique ? Et si nous éliminions totalement la dépendance au serveur central ?" <strong>Git était né</strong> — et il allait transformer le développement logiciel pour toujours.</p>
+                <div class="section-with-image">
+                    <div class="section-content">
+                        <h2>Gestion de Versions Distribuée : La Révolution Git</h2>
+                        
+                        <p class="lead">Au milieu des années 2000, <strong>Linus Torvalds</strong> (créateur du noyau Linux) s'est posé une question révolutionnaire : "Et si chaque développeur avait une copie complète de l'historique ? Et si nous éliminions totalement la dépendance au serveur central ?" <strong>Git était né</strong> — et il allait transformer le développement logiciel pour toujours.</p>
 
-                <h3>Le Changement de Paradigme</h3>
-                <p>Chaque développeur possède une copie complète du dépôt entier sur sa machine locale, incluant tout l'historique depuis le début du projet. En parallèle, il existe un dépôt distant (souvent hébergé sur GitHub ou GitLab) qui sert de point de synchronisation.</p>
+                        <h3>Le Changement de Paradigme</h3>
+                        <p>Chaque développeur possède une copie complète du dépôt entier sur sa machine locale, incluant tout l'historique depuis le début du projet. En parallèle, il existe un dépôt distant (souvent hébergé sur GitHub ou GitLab) qui sert de point de synchronisation.</p>
 
-                <div class="code-block">
-                    <div class="code-header">Architecture Distribuée</div>
-                    <pre><code>Local (Votre PC)  ←→  Distant (GitHub/GitLab)  ←→  Équipe (Synchronisée)</code></pre>
-                </div>
+                        <div class="code-block">
+                            <div class="code-header">Architecture Distribuée</div>
+                            <pre><code>Local (Votre PC)  ←→  Distant (GitHub/GitLab)  ←→  Équipe (Synchronisée)</code></pre>
+                        </div>
 
-                <div class="note">
-                    <strong>Systèmes Distribués :</strong> Git (dominant à 90%+), Mercurial, Bazaar
+                        <div class="note">
+                            <strong>Systèmes Distribués :</strong> Git (dominant à 90%+), Mercurial, Bazaar
+                        </div>
+                    </div>
+                    <div class="section-image1">
+                        <img src="/images/distribuee.png" alt="Schéma de gestion de versions distribuée" class="distributed-diagram">
+                    </div>
                 </div>
 
                 <h3>Avantages Révolutionnaires</h3>
@@ -775,10 +903,6 @@
                     </div>
                 </div>
 
-                <div class="final-message">
-                    <h3>Bienvenue dans le monde professionnel du développement logiciel.</h3>
-                    <p>Vous êtes maintenant équipé pour y réussir. 🚀</p>
-                </div>
             </section>
 
             <!-- Collaborative Sections Placeholders -->

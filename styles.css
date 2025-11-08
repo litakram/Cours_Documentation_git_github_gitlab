@@ -977,3 +977,63 @@ code {
         text-align: center;
     }
 }
+
+/* ========================================
+   SECTION WITH IMAGE LAYOUT
+   ======================================== */
+
+.section-with-image {
+    display: flex;
+    gap: var(--spacing-xl);
+    align-items: flex-start;
+    margin-bottom: var(--spacing-xl);
+}
+
+.section-content {
+    flex: 1;
+}
+
+.section-image {
+    flex: 0 0 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 120px;
+}
+
+
+.section-image1 {
+    flex: 0 0 250px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 200px;
+    margin-left: -29px;
+}
+
+.local-diagram,
+.centralized-diagram,
+.distributed-diagram {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border: 1px solid var(--border-color);
+}
+
+/* Responsive design for section with image */
+@media (max-width: 768px) {
+    .section-with-image {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .section-image {
+        flex: none;
+        margin-top: var(--spacing-lg);
+    }
+    
+    .local-diagram {
+        max-width: 80%;
+    }
+}
